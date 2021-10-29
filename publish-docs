@@ -1,0 +1,41 @@
+#!/bin/bash
+
+git submodule add -b gh-pages git@github.com:mongodb/mongo-java-driver 2>/dev/null
+git submodule update --remote || exit
+
+if [[ -z $1 || $# -gt 1 ]]; then
+    echo "Usage: publish-docs <version>"
+    exit 1
+fi
+
+version=$1
+echo version: ${version}
+
+# reference docs
+cd reference || exit
+rm -rf public
+hugo
+
+rm -rf ../mongo-java-driver/${version}
+mkdir ../mongo-java-driver/${version}
+cp -a public/* ../mongo-java-driver/${version}
+rm -rf public
+
+cd ..
+
+# landing docs
+cd landing || exit
+rm -rf public
+hugo
+
+rsync -a public/ ../mongo-java-driver/
+rm -rf public
+
+cd ..
+
+# update remote
+cd mongo-java-driver
+git add .
+git ci -a -m fixup!
+git rebase -i --root
+git push origin -f
