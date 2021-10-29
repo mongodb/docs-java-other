@@ -38,4 +38,4 @@ cd mongo-java-driver
 git add .
 git ci -a -m fixup!
 git rebase -i --root
-git push origin -f
+git push origin gh-pages -f

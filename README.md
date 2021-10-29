@@ -10,3 +10,14 @@ https://github.com/mongodb/docs-java
  1. landing - the front page of all the java docs
  2. reference - the reference site for the current version of the driver
 
+## Build Instructions
+
+After making required changes, run the `publish-docs` script with the version:
+
+```sh
+./publish-docs version
+```
+
+This will initiate a submodule (if necessary) that tracks the *gh-pages* branch
+of the [mongo-java-driver](https://github.com/mongodb/mongo-java-driver). It will
+then build the documents, copy items over as necessary, and push them.
