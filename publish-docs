@@ -11,7 +11,7 @@ fi
 version=$1
 echo version: ${version}
 
-# reference docs
+# make the reference docs
 cd reference || exit
 rm -rf public
 hugo
@@ -23,7 +23,7 @@ rm -rf public
 
 cd ..
 
-# landing docs
+# make the landing page
 cd landing || exit
 rm -rf public
 hugo
@@ -33,7 +33,8 @@ rm -rf public
 
 cd ..
 
-# update remote
+# publish the docs
+# you will need push access to the mongo-java-driver repo's gh-pages branch
 cd mongo-java-driver
 git add .
 git ci -a -m fixup!
