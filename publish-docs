@@ -35,8 +35,3 @@ cd ..
 
 # publish the docs
 # you will need push access to the mongo-java-driver repo's gh-pages branch
-cd mongo-java-driver
-git add .
-git ci -a -m fixup!
-git rebase -i --root
-git push origin gh-pages -f
