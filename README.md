@@ -17,4 +17,16 @@ After making required changes, run the `publish-docs` script with the version:
 
 This will initiate a submodule (if necessary) that tracks the *gh-pages* branch
 of the [mongo-java-driver](https://github.com/mongodb/mongo-java-driver). It will
-then build the documents, copy items over as necessary, and push them.
+then build the documents and copy items over as necessary (using rsync).
+
+## Publishing
+
+To publish the documentation, you can execute the following commands in your shell:
+
+```js
+cd mongo-java-driver
+git add .
+git ci -a -m fixup!
+git rebase -i --root
+git push origin gh-pages -f
+```
