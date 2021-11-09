@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git submodule add -b gh-pages git@github.com:mongodb/mongo-java-driver 2>/dev/null
+git submodule add -b gh-pages git@github.com:mongodb/mongo-java-driver 2> /dev/null
 git submodule update --remote || exit
 
 if [[ -z $1 || $# -gt 1 ]]; then
@@ -18,7 +18,7 @@ hugo
 
 rm -rf ../mongo-java-driver/${version}
 mkdir ../mongo-java-driver/${version}
-cp -a public/* ../mongo-java-driver/${version}
+rsync -a public/* ../mongo-java-driver/${version}
 rm -rf public
 
 cd ..
@@ -28,7 +28,7 @@ cd landing || exit
 rm -rf public
 hugo
 
-rsync -a public/ ../mongo-java-driver/
+rsync -a public/* ../mongo-java-driver/
 rm -rf public
 
 cd ..

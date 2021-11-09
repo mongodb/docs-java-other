@@ -19,6 +19,26 @@ This will initiate a submodule (if necessary) that tracks the *gh-pages* branch
 of the [mongo-java-driver](https://github.com/mongodb/mongo-java-driver). It will
 then build the documents and copy items over as necessary (using rsync).
 
+## Building API Documentation
+
+For major and minor releases, it is required to build the api docs. This
+can be done by navigating to your `mongo-java-driver` repo (*Note: NOT the submodule in this repo*) and executing the appropriate `gradlew` command
+after checking out the correct tag.
+
+For example, to build the apidocs for the 4.4 release of driver:
+
+```sh
+git checkout r4.4.0
+./gradlew clean docs
+```
+
+Then copy the `build/docs` folder into the `apidocs` directory. For example,
+if the `mongo-java-driver` repo is on a sibling level with this repo:
+
+```sh
+cp -a ../mongo-java-driver/build/docs ./mongo-java-driver/<version>/apidocs
+```
+
 ## Publishing
 
 To publish the documentation, you can execute the following commands in your shell:
