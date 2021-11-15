@@ -7,22 +7,30 @@ title = "What's New"
   pre = "<i class='fa fa-level-up'></i>"
 +++
 
+# What's new in 4.4
+
+* Compatibility with MongoDB 5.1 and support for Java 17
+* Added support for index hints in an AggregateIterable
+* Added support for the $merge and $out aggregation stages on secondaries
+* Use of the `mergeObjects()` method in the Updates builder
+* DocumentCodec does not ignore a CodecRegistry when writing to an Iterable or a Map instance
+
 # What's new in 4.3
 
 This release fully supports all MongoDB releases from versions 2.6 to 4.4. It also supports some features of the next release of MongoDB.
 
 New features of the 4.3 Java driver release include:
 
-* Added support for the MongoDB Versioned API.  See the 
+* Added support for the MongoDB Versioned API.  See the
   [`ServerApi`]({{< apiref "mongodb-driver-core" "com/mongodb/ServerApi.html" >}}) API documentation for details.
-* Removed most restrictions on allowed characters in field names of documents being inserted or replaced.  This is a behavioral change 
-  for any application that is relying on client-side enforcement of these restrictions. In particular: 
+* Removed most restrictions on allowed characters in field names of documents being inserted or replaced.  This is a behavioral change
+  for any application that is relying on client-side enforcement of these restrictions. In particular:
   * Restrictions on field names containing the "." character have been removed. This affects all insert and replace operations.
   * Restrictions on field names starting with the "$" character have been removed for all insert operations.
-  * Restrictions in nested documents on field names starting with the "$" character have been removed for all replace operations.  
-  * Restrictions in the top-level document on field names starting with the "$" character remain for all replace operations. This is 
+  * Restrictions in nested documents on field names starting with the "$" character have been removed for all replace operations.
+  * Restrictions in the top-level document on field names starting with the "$" character remain for all replace operations. This is
     primarily to prevent accidental use of a replace operation when the intention was to use an update operation.
-  * Note that unacknowledged writes using dollar-prefixed or dotted keys may be silently rejected by pre-5.0 servers, where some 
+  * Note that unacknowledged writes using dollar-prefixed or dotted keys may be silently rejected by pre-5.0 servers, where some
     restrictions on field names are still enforced in the server.
 * Added support for setting
   [Netty](https://netty.io/) [`io.netty.handler.ssl.SslContext`]({{< nettyapiref "io/netty/handler/ssl/SslContext.html" >}}),
@@ -36,15 +44,15 @@ New features of the 4.3 Java driver release include:
 
 This release fully supports all MongoDB releases from versions 2.6 to 4.4. New features of the 4.2 Java driver release include:
 
-* The Reactive Streams driver now utilizes [Project Reactor](https://projectreactor.io/) internally. Project reactor follows 
+* The Reactive Streams driver now utilizes [Project Reactor](https://projectreactor.io/) internally. Project reactor follows
   the Reactive Streams specification and has greatly simplified the implementation of the driver.
 * Added support for Azure and GCP key stores to client-side field level encryption.
 * Added support for caching Kerberos tickets so that they can be re-used for multiple authentication requests.
-* Added support for constructing legacy `com.mongodb.MongoClient` instances with `MongoClientSettings` or `ConnectionString` as 
+* Added support for constructing legacy `com.mongodb.MongoClient` instances with `MongoClientSettings` or `ConnectionString` as
   the configuration, instead of `MongoClientOptions` or `MongoClientURI`.
 * Added support for `explain` of `find` and `aggregate` commands.
 * Added a `JsonObject` class to make encoding from and decoding to JSON more efficient by avoiding an intermediate `Map` representation.
-* Added a `BsonRepresentation` annotation that allows `ObjectId` BSON values to be represented as `String`s in POJO classes. 
+* Added a `BsonRepresentation` annotation that allows `ObjectId` BSON values to be represented as `String`s in POJO classes.
 * Added support for the `BsonIgnore` annotation in Scala case classes.
 * Added a `Filters.empty()` method.
 
@@ -60,7 +68,7 @@ This release fully supports all MongoDB releases from versions 2.6 to 4.4. Key n
 
 # What's new in 4.0
 
-This release adds no new features but, as a major release, contains breaking changes that may affect your application. Please consult the 
+This release adds no new features but, as a major release, contains breaking changes that may affect your application. Please consult the
 [Upgrading Guide]({{<ref "upgrading.md" >}}) for an enumeration of the breaking changes.
 
 # What's new in 3.12
@@ -78,11 +86,11 @@ See [Client-side Encryption]({{<ref "driver/tutorials/client-side-encryption.md"
 ### Improved interoperability when using the native UUID type
 
 The driver now supports setting the BSON binary representation of `java.util.UUID` instances via a new `UuidRepresentation` property on
-`MongoClientSettings`.  The default representation has not changed, but it will in the upcoming 4.0 major release of the driver. 
+`MongoClientSettings`.  The default representation has not changed, but it will in the upcoming 4.0 major release of the driver.
 Applications that store UUID values in MongoDB can use this setting to easily control the representation in MongoDB without having to
-register a `Codec<Uuid>` in the `CodecRegistry`.  
+register a `Codec<Uuid>` in the `CodecRegistry`.
 
-See [`MongoClientSettings.getUuidRepresentation`]({{< apiref "mongodb-driver-core" "com/mongodb/MongoClientSettings.html#getUuidRepresentation()" >}}) for details. 
+See [`MongoClientSettings.getUuidRepresentation`]({{< apiref "mongodb-driver-core" "com/mongodb/MongoClientSettings.html#getUuidRepresentation()" >}}) for details.
 
 ## What's new in 3.11
 
@@ -149,9 +157,9 @@ TLS/SSL natively, so no third-party dependency is required. To accomplish this, 
 
 ### Operational improvements
 
-When connecting with the `mongodb+srv` protocol, the driver now polls DNS for changes to the SRV records when connected to a sharded 
-cluster.  See 
-[Polling SRV Records for Mongos Discovery](https://github.com/mongodb/specifications/blob/master/source/polling-srv-records-for-mongos-discovery/polling-srv-records-for-mongos-discovery.rst) 
+When connecting with the `mongodb+srv` protocol, the driver now polls DNS for changes to the SRV records when connected to a sharded
+cluster.  See
+[Polling SRV Records for Mongos Discovery](https://github.com/mongodb/specifications/blob/master/source/polling-srv-records-for-mongos-discovery/polling-srv-records-for-mongos-discovery.rst)
 for more details.
 
 When retryable writes are enabled, the driver now outputs log messages at DEBUG level when a retryable write is attempted.  See
@@ -184,7 +192,7 @@ See [MongoDB Mobile](https://www.mongodb.com/products/mobile) for more details.
 
 ### Deprecations
 
-Numerous classes and methods have been deprecated in the 3.9 release in preparation for a major 4.0 release.  See the 
+Numerous classes and methods have been deprecated in the 3.9 release in preparation for a major 4.0 release.  See the
 [Upgrading Guide]({{<ref "upgrading.md" >}}) for more information.
 
 ## What's New in 3.8
@@ -193,15 +201,15 @@ Key new features of the 3.8 Java driver release:
 
 ### Transactions
 
-The Java driver now provides support for executing CRUD operations within a transaction (requires MongoDB 4.0).  See the 
+The Java driver now provides support for executing CRUD operations within a transaction (requires MongoDB 4.0).  See the
 [Transactions and MongoDB Drivers](https://docs.mongodb.com/master/core/transactions/#transactions-and-mongodb-drivers) section
 of the documentation and select the `Java (Sync)` tab.
 
 ### Change Stream enhancements
 
-The Java driver now provides support for opening a change stream against an entire database, via new 
-[`MongoDatabase.watch`]({{< apiref "mongodb-driver-sync" "com/mongodb/client/MongoDatabase.html" >}}) methods, or an 
-entire deployment, via new [`MongoClient.watch`]({{< apiref "mongodb-driver-sync" "com/mongodb/client/MongoClient.html" >}}) methods. See 
+The Java driver now provides support for opening a change stream against an entire database, via new
+[`MongoDatabase.watch`]({{< apiref "mongodb-driver-sync" "com/mongodb/client/MongoDatabase.html" >}}) methods, or an
+entire deployment, via new [`MongoClient.watch`]({{< apiref "mongodb-driver-sync" "com/mongodb/client/MongoClient.html" >}}) methods. See
 [Change Streams]({{<ref "driver/tutorials/change-streams.md" >}}) for further details.
 
 ### SCRAM-256 Authentication Mechanism
@@ -217,36 +225,36 @@ Key new features of the 3.7 Java driver release:
 
 #### Modules
 
-The Java driver now provides a set of JAR files that are compliant with the Java 9 
-[module specification](http://cr.openjdk.java.net/~mr/jigsaw/spec/), and `Automatic-Module-Name` declarations have been added 
-to the manifests of those JAR files. See the [Installation Guide]({{<ref "driver/getting-started/installation.md" >}}) 
-for information on which JAR files are now Java 9-compliant modules as well as what each of their module names is.  
+The Java driver now provides a set of JAR files that are compliant with the Java 9
+[module specification](http://cr.openjdk.java.net/~mr/jigsaw/spec/), and `Automatic-Module-Name` declarations have been added
+to the manifests of those JAR files. See the [Installation Guide]({{<ref "driver/getting-started/installation.md" >}})
+for information on which JAR files are now Java 9-compliant modules as well as what each of their module names is.
 
-Note that it was not possible to modularize all the existing JAR files due to the fact that, for some of them, packages are split amongst 
-multiple JAR files, and this violates a core rule of the Java 9 module system which states that at most one module contains classes for any 
-given package. For instance, the `mongodb-driver` and `mongodb-driver-core` JAR files both contain classes in the `com.mongodb` package, 
-and thus it's not possible to make both `mongodb-driver` and `mongodb-driver-core` Java 9 modules. Also so-called 
-"uber jars" like `mongo-java-driver` are not appropriate for Java 9 modularization, as they can conflict with their non-uber brethren, and 
-thus have not been given module names. 
+Note that it was not possible to modularize all the existing JAR files due to the fact that, for some of them, packages are split amongst
+multiple JAR files, and this violates a core rule of the Java 9 module system which states that at most one module contains classes for any
+given package. For instance, the `mongodb-driver` and `mongodb-driver-core` JAR files both contain classes in the `com.mongodb` package,
+and thus it's not possible to make both `mongodb-driver` and `mongodb-driver-core` Java 9 modules. Also so-called
+"uber jars" like `mongo-java-driver` are not appropriate for Java 9 modularization, as they can conflict with their non-uber brethren, and
+thus have not been given module names.
 
-Note that none of the modular JAR files contain `module-info` class files yet.  Addition of these classes will be considered in a future 
+Note that none of the modular JAR files contain `module-info` class files yet.  Addition of these classes will be considered in a future
 release.
 
 #### New Entry Point
 
-So that the driver can offer a modular option, a new entry point has been added to the `com.mongodb.client` package. 
-Static methods in this entry point, `com.mongodb.client.MongoClients`, returns instances of a new `com.mongodb.client.MongoClient` 
-interface.  This interface, while similar to the existing `com.mongodb.MongoClient` class in that it is a factory for 
-`com.mongodb.client.MongoDatabase` instances, does not support the legacy `com.mongodb.DBCollection`-based API, and thus does not suffer 
-from the aforementioned package-splitting issue that prevents Java 9 modularization. This new entry point is encapsulated in the new 
+So that the driver can offer a modular option, a new entry point has been added to the `com.mongodb.client` package.
+Static methods in this entry point, `com.mongodb.client.MongoClients`, returns instances of a new `com.mongodb.client.MongoClient`
+interface.  This interface, while similar to the existing `com.mongodb.MongoClient` class in that it is a factory for
+`com.mongodb.client.MongoDatabase` instances, does not support the legacy `com.mongodb.DBCollection`-based API, and thus does not suffer
+from the aforementioned package-splitting issue that prevents Java 9 modularization. This new entry point is encapsulated in the new
 `mongodb-driver-sync` JAR file, which is also a Java 9-compliant module.
 
 The new entry point also moves the driver further in the direction of effective deprecation of the legacy API, which is now only available
-only via the `mongo-java-driver` and `mongodb-driver` uber-jars, which are not Java 9 modules. At this point there are no plans to offer 
+only via the `mongo-java-driver` and `mongodb-driver` uber-jars, which are not Java 9 modules. At this point there are no plans to offer
 the legacy API as a Java 9 module.
 
 See [Connect To MongoDB]({{<ref "driver/tutorials/connect-to-mongodb.md" >}}) for details on the new `com.mongodb.client.MongoClients`
-and how it compares to the existing `com.mongodb.MongoClient` class.   
+and how it compares to the existing `com.mongodb.MongoClient` class.
 
 ### Unix domain socket support
 
@@ -268,7 +276,7 @@ and / or more flexibility regarding JSR-310 dates should check out the alternati
 ### JSR-305 NonNull annotations
 
 The public API is now annotated with JSR-305 compatible `@NonNull` and `@Nullable` annotations.  This will allow programmers
-to rely on tools like FindBugs/SpotBugs, IDEs like IntelliJ IDEA, and compilers like the Kotlin compiler to find errors in the use of the 
+to rely on tools like FindBugs/SpotBugs, IDEs like IntelliJ IDEA, and compilers like the Kotlin compiler to find errors in the use of the
 driver via static analysis rather than via runtime failures.
 
 ### Improved logging of commands
@@ -282,12 +290,12 @@ in debugging:
 Here's an example
 
 ```
-10:37:29.099 [cluster-ClusterId {value='5a466138741fc252712a6d71', description='null'}-127.0.0.1:27017] DEBUG org.mongodb.driver.protocol.command - 
+10:37:29.099 [cluster-ClusterId {value='5a466138741fc252712a6d71', description='null'}-127.0.0.1:27017] DEBUG org.mongodb.driver.protocol.command -
 Sending command '{ "hello" : 1, "$db" : "admin" } ...' with request id 4 to database admin on connection [connectionId{localValue:1, serverValue:1958}] to server 127.0.0.1:27017
-10:37:29.104 [cluster-ClusterId{value='5a466138741fc252712a6d71', description='null'}-127.0.0.1:27017] DEBUG org.mongodb.driver.protocol.command - 
+10:37:29.104 [cluster-ClusterId{value='5a466138741fc252712a6d71', description='null'}-127.0.0.1:27017] DEBUG org.mongodb.driver.protocol.command -
 Execution of command with request id 4 completed successfully in 22.44 ms on connection [connectionId {localValue:1, serverValue:1958}] to server 127.0.0.1:27017
 ```
- 
+
 ### Improved support for "raw" documents
 
 When working with "raw" BSON for improved performance via the [`RawBsonDocument`]({{< apiref "bson" "org/bson/RawBsonDocument" >}}), the efficiency
@@ -303,9 +311,9 @@ BsonDocument embeddedDoc = doc.getDocument("embeddedDoc");
 // returns a RawBsonArray that is a slice of the bytes from the containing doc
 BsonArray embeddedArray = doc.getArray("embeddedArray");
 
-// returns a RawBsonDocument that is a slice of the bytes from the containing array 
-BsonDocument embeddedDoc2 = (BsonDocument) embeddedArray.get(0); 
-``` 
+// returns a RawBsonDocument that is a slice of the bytes from the containing array
+BsonDocument embeddedDoc2 = (BsonDocument) embeddedArray.get(0);
+```
 
 ## What's New in 3.6
 
@@ -315,12 +323,12 @@ Key new features of the 3.6 Java driver release:
 
 The 3.6 release adds support for [change streams](http://dochub.mongodb.org/core/changestreams).
 
-* [Change Stream Quick Start]({{<ref "driver/tutorials/change-streams.md" >}}) 
+* [Change Stream Quick Start]({{<ref "driver/tutorials/change-streams.md" >}})
 * [Change Stream Quick Start (Async)]({{<ref "driver-reactive/tutorials/change-streams.md" >}})
 
 ### Retryable writes
 
-The 3.6 release adds support for retryable writes using the `retryWrites` option in 
+The 3.6 release adds support for retryable writes using the `retryWrites` option in
 [`MongoClientOptions`]({{< apiref "mongodb-driver-legacy" "com/mongodb/MongoClientOptions" >}}).
 
 ### Compression
@@ -331,9 +339,9 @@ The 3.6 release adds support for compression of messages to and from appropriate
 * [Compression Tutorial (Async)]({{<ref "driver-reactive/tutorials/compression.md" >}})
 
 ### Causal consistency
-              
+
 The 3.6 release adds support for [causally consistency](http://dochub.mongodb.org/core/causal-consistency) via the new
-[`ClientSession`]({{< apiref "mongodb-driver-core" "com/mongodb/session/ClientSession" >}}) API. 
+[`ClientSession`]({{< apiref "mongodb-driver-core" "com/mongodb/session/ClientSession" >}}) API.
 
 ### Application-configured server selection
 
@@ -363,9 +371,9 @@ Key new features of the 3.5 Java driver release:
 The 3.5 release adds support for [POJO](https://en.wikipedia.org/wiki/Plain_old_Java_object) serialization at the BSON layer, and can be
 used by the synchronous and asynchronous drivers.  See the POJO Quick start pages for details.
 
-* [POJO Quick Start]({{<ref "driver/getting-started/quick-start-pojo.md" >}}) 
+* [POJO Quick Start]({{<ref "driver/getting-started/quick-start-pojo.md" >}})
 * [POJO Quick Start (Async)]({{<ref "driver-reactive/getting-started/quick-start-pojo.md" >}})
-* [POJO Reference]({{<ref "bson/pojos.md" >}}) 
+* [POJO Reference]({{<ref "bson/pojos.md" >}})
 
 ### Improved JSON support
 
@@ -374,7 +382,7 @@ The 3.5 release improves support for JSON parsing and generation.
 * Implements the new [Extended JSON specification](https://github.com/mongodb/specifications/blob/master/source/extended-json.rst)
 * Implements custom JSON converters to give applications full control over JSON generation for each BSON type
 
-See the [JSON reference]({{<ref "bson/extended-json.md" >}}) for details. 
+See the [JSON reference]({{<ref "bson/extended-json.md" >}}) for details.
 
 ### Connection pool monitoring
 
@@ -393,10 +401,10 @@ The 3.5 release supports overriding the default `javax.net.ssl.SSLContext` used 
 ### KeepAlive configuration deprecated
 
 The 3.5 release deprecated socket keep-alive settings, also socket keep-alive checks are now on by default.
-It is *strongly recommended* that system keep-alive settings should be configured with shorter timeouts. 
+It is *strongly recommended* that system keep-alive settings should be configured with shorter timeouts.
 
-See the 
-['does TCP keep-alive time affect MongoDB deployments?']({{<docsref "/faq/diagnostics/#does-tcp-keepalive-time-affect-mongodb-deployments" >}}) 
+See the
+['does TCP keep-alive time affect MongoDB deployments?']({{<docsref "/faq/diagnostics/#does-tcp-keepalive-time-affect-mongodb-deployments" >}})
 documentation for more information.
 
 
@@ -441,8 +449,8 @@ import com.mongodb.client.model.Collation;
 ```
 
 [Collation]({{<docsref "reference/collation/" >}}) allows users to specify language-specific rules for string
-comparison. 
-Use the [`Collation.builder()`] ({{< apiref "mongodb-driver-core" "com/mongodb/client/model/Collation.html" >}}) 
+comparison.
+Use the [`Collation.builder()`] ({{< apiref "mongodb-driver-core" "com/mongodb/client/model/Collation.html" >}})
 to create the `Collation` object. For example, the following example creates a `Collation` object with Primary level of comparison and [locale]({{<docsref "reference/collation-locales-defaults/#supported-languages-and-locales" >}}) ``fr``.
 
 ```java
@@ -453,7 +461,7 @@ You can specify collation at the collection level, at an index level, or at a co
 
 #### Collection Level
 
-To specify collation at the collection level, pass a `Collation` object as an option to the `createCollection()` method. To specify options to the `createCollection` method, use the [`CreateCollectionOptions`]({{< apiref "mongodb-driver-core" "com/mongodb/client/model/CreateCollectionOptions.html" >}}) class. 
+To specify collation at the collection level, pass a `Collation` object as an option to the `createCollection()` method. To specify options to the `createCollection` method, use the [`CreateCollectionOptions`]({{< apiref "mongodb-driver-core" "com/mongodb/client/model/CreateCollectionOptions.html" >}}) class.
 
 ```java
 database.createCollection("myColl", new CreateCollectionOptions().collation(
@@ -464,7 +472,7 @@ database.createCollection("myColl", new CreateCollectionOptions().collation(
 
 #### Index Level
 
-To specify collation for an index, pass a `Collation` object as an option to the `createIndex()` method. To specify index options, use the [IndexOptions]({{< apiref "mongodb-driver-core" "com/mongodb/client/model/IndexOptions.html" >}}) class. 
+To specify collation for an index, pass a `Collation` object as an option to the `createIndex()` method. To specify index options, use the [IndexOptions]({{< apiref "mongodb-driver-core" "com/mongodb/client/model/IndexOptions.html" >}}) class.
 
 ```java
 IndexOptions collationIndexOptions = new IndexOptions().name("collation-fr")
@@ -482,9 +490,9 @@ The following operations support collation by specifying the
 `Collation` object to their respective Iterable object.
 
 - `MongoCollection.aggregate()`
-   
+
 - `MongoCollection.distinct()`
-   
+
 - `MongoCollection.find()`
 
 - `MongoCollection.mapReduce()`
@@ -511,7 +519,7 @@ for the method:
 - `MongoCollection.count()`
 - `MongoCollection.deleteOne()`
 - `MongoCollection.deleteMany()`
-- `MongoCollection.findOneAndDelete()` 
+- `MongoCollection.findOneAndDelete()`
 - `MongoCollection.findOneAndReplace()`
 - `MongoCollection.findOneAndUpdate()`
 - `MongoCollection.updateOne()`
@@ -530,17 +538,17 @@ Collation collation = Collation.builder()
 
 collection.count(Filters.eq("category", "cafe"), new CountOptions().collation(collation));
 
-collection.updateOne(Filters.eq("category", "cafe"), set("stars", 1), 
+collection.updateOne(Filters.eq("category", "cafe"), set("stars", 1),
                      new UpdateOptions().collation(collation));
 
 collection.bulkWrite(Arrays.asList(
                 new UpdateOneModel<>(new Document("category", "cafe"),
-                                     new Document("$set", new Document("x", 0)), 
+                                     new Document("$set", new Document("x", 0)),
                                      new UpdateOptions().collation(collation)),
-                new DeleteOneModel<>(new Document("category", "cafe"), 
+                new DeleteOneModel<>(new Document("category", "cafe"),
                                      new DeleteOptions().collation(collation))));
 ```
-  
+
 
 For more information on collation, including the supported locales, refer to the
 [manual]({{<docsref "reference/collation/" >}}).
