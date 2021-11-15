@@ -7,6 +7,9 @@
     <title>{{.Title}}</title>
 
     {{- partial "assets/css.html" . -}}
+
+    {{- partial "header/metaRedirect.html" . -}}
+
   </head>
 
   <body>
@@ -25,6 +28,3 @@
               <div class="documentwrapper">
                 <div class="bodywrapper">
                   <div class="body">
-                    {{ if ( and ( findRE ".*mongo-java-driver/4.3/.+" .URL ) ( not ( findRE ".*/apidocs/.*" .URL )) ( not ( findRE ".*/driver-scala/.*" .URL )) (not ( findRE ".*/driver-reactive/.*" .URL ))) }}
-                      {{- partial "header/newSiteNotice.html" . -}}
-                    {{ end }}

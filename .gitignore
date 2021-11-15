@@ -55,3 +55,9 @@ hugo*
 
 # security-sensitive files
 *.gpg
+
+# vim temporary files
+*.swp
+
+# hugo lock files
+*.hugo_build.lock
