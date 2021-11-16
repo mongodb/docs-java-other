@@ -16,7 +16,6 @@ cd reference || exit
 rm -rf public
 hugo
 
-rm -rf ../mongo-java-driver/${version}
 mkdir ../mongo-java-driver/${version}
 rsync -a public/* ../mongo-java-driver/${version}
 rm -rf public
