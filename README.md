@@ -9,7 +9,7 @@ https://github.com/mongodb/docs-java
 
 ## Build Instructions
 
-After making required changes, run the `publish-docs` script with the version:
+After making required changes, submit a pull request. Once your PR is approved and merged, run the `publish-docs` script with the version:
 
 ```sh
 ./publish-docs <version>
@@ -41,12 +41,12 @@ cp -a ../mongo-java-driver/build/docs ./mongo-java-driver/<version>/apidocs
 
 ## Publishing
 
-To publish the documentation, you can execute the following commands in your shell:
+To publish the documentation, you can execute the following commands in your shell from the `docs-java-other` repository location:
 
 ```js
 cd mongo-java-driver
 git add .
-git ci -a -m fixup!
+git commit -m <message>
 git rebase -i --root
 git push origin gh-pages -f
 ```
