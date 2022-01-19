@@ -225,14 +225,6 @@ input.gsc-search-button[title], input.gsc-search-button:hover[title], input.gsc-
   padding: 12px 0px;
 }
 
-#mongodbJVMlogo {
-  background-image: url("../img/mongoJVMlogo.png");
-  background-position: left top;
-  background-repeat: no-repeat;
-  width: 83px;
-  height: 150px;
-}
-
 #hero h2 {
   border-top: 3px solid #6ca439;
   color: #f3f4eb;
