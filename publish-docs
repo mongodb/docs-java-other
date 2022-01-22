@@ -1,36 +1,33 @@
 #!/bin/bash
 
-git submodule add -b gh-pages git@github.com:mongodb/mongo-java-driver 2> /dev/null
-git submodule update --remote || exit
-
 if [[ -z $1 || $# -gt 1 ]]; then
     echo "Usage: publish-docs <version>"
     exit 1
 fi
-
 version=$1
-echo version: ${version}
+
+baseDir=`pwd`
+dirName=`basename ${baseDir}`
+if [ ! ${dirName} = "docs-java-other" ]
+then
+    echo "Please run this script from the docs-java-other directory."
+    exit 1
+fi
+
+submoduleName="mongo-java-driver"
+referenceDir="reference"
+landingDir="landing"
+
+echo "Adding mongo-java-driver submodule (if necessary)..."
+git submodule add -b gh-pages git@github.com:mongodb/mongo-java-driver 2> /dev/null && git submodule update --remote
 
 # make the reference docs
-cd reference || exit
-rm -rf public
-hugo
+echo "[START] Building reference docs version: ${version}"
+hugo --config ${referenceDir}/config.toml --source ${referenceDir} --destination ${baseDir}/${submoduleName}/${version} && echo "[COMPLETE] Completed reference docs build."
 
-mkdir ../mongo-java-driver/${version}
-rsync -a public/* ../mongo-java-driver/${version}
-rm -rf public
-
-cd ..
-
-# make the landing page
-cd landing || exit
-rm -rf public
-hugo
-
-rsync -a public/* ../mongo-java-driver/
-rm -rf public
-
-cd ..
+# make the landing page docs
+echo "[START] Building landing page docs"
+hugo --config ${landingDir}/config.toml --source ${landingDir} --destination ${baseDir}/${submoduleName}/ && echo "[COMPLETE] Completed landing page docs build."
 
 # publish the docs
 # you will need push access to the mongo-java-driver repo's gh-pages branch
