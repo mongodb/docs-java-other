@@ -10,7 +10,7 @@ https://github.com/mongodb/docs-java
 ## Build Instructions
 
 :warning: **When building docs for a new version, make sure to update the following:**
-- `mongo-java-driver/reference/config.toml` to point to the new base version
+- `<this repo>/reference/config.toml` to point to the new base version
 - any redirects such as the [Java sync docs redirect](https://github.com/mongodb/docs-java-other/pull/3/files#diff-0f1a8692163867f83ff7451f3018bae71d3d16dbee396abf03263784e5dda940)
 
 After making required changes, submit a pull request. Once your PR is approved and merged, run the `publish-docs` script with the version:
@@ -20,8 +20,9 @@ After making required changes, submit a pull request. Once your PR is approved a
 ```
 
 This will initiate a submodule (if necessary) that tracks the *gh-pages* branch
-of the [mongo-java-driver](https://github.com/mongodb/mongo-java-driver). It will
-then build the documents and copy items over as necessary (using rsync).
+of the [mongo-java-driver](https://github.com/mongodb/mongo-java-driver). It then
+builds the documents in a new directory in the submodule that corresponds to the
+new version name.
 
 ## Building API Documentation
 
