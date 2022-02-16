@@ -1,15 +1,20 @@
-current = "4.4.0"
+current = "4.5.0"
 
 [[versions]]
-status = "current"
-version = "4.4.0"
-docs = "./4.4"
-api = "./4.4/apidocs"
+  status = "current"
+  version = "4.5.0"
+  docs = "./4.5"
+  api = "./4.5/apidocs"
 
 [[versions]]
-version = "4.3.4"
-docs = "./4.3"
-api = "./4.3/apidocs"
+  version = "4.4.1"
+  docs = "./4.4"
+  api = "./4.4/apidocs"
+
+[[versions]]
+  version = "4.3.4"
+  docs = "./4.3"
+  api = "./4.3/apidocs"
 
 [[versions]]
   version = "4.2.3"
