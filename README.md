@@ -39,6 +39,13 @@ if the `mongo-java-driver` repo is on a sibling level with this repo:
 cp -a ../mongo-java-driver/build/docs ./mongo-java-driver/<version>/apidocs
 ```
 
+Your submodule directory should contain a directory structure that resembles the following:
+
+```sh
+<this repo>/<submodule directory>/<version>/apidocs/{bson,mongodb-driver-core,mongodb-driver-sync,mongodb-driver-legacy, mongodb-driver-reactivestreams/
+```
+
+
 ## Publishing
 
 To publish the documentation, you can execute the following commands in your shell from the `docs-java-other` repository location:
