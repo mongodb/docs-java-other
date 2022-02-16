@@ -23,7 +23,7 @@ then build the documents and copy items over as necessary (using rsync).
 
 For major and minor releases, it is required to build the api docs. This
 can be done by navigating to your `mongo-java-driver` repo (*Note: NOT the submodule in this repo*) and executing the appropriate `gradlew` command
-after checking out the correct tag.
+after checking out the correct tag. Make sure you installed the Java version specified in the `:bson:compileJava` task on your machine.
 
 For example, to build the apidocs for the 4.4 release of driver:
 
