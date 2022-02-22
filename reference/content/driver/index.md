@@ -31,9 +31,10 @@ For tutorials for some frequently used operations, see the [Tutorials section]({
 
 | Release | Documentation |
 |---------|---------------|
-|  4.1.1  | {{< releases version="4.1" >}} | 
-|  4.0.5  | {{< releases version="4.0" >}} | 
-|  3.12.2 | {{< releases version="3.12" apiDir="javadoc" >}} | 
+|  4.2.x  | {{< releases version="4.2" >}} |
+|  4.1.1  | {{< releases version="4.1" >}} |
+|  4.0.5  | {{< releases version="4.0" >}} |
+|  3.12.2 | {{< releases version="3.12" apiDir="javadoc" >}} |
 |  3.11.2 | {{< releases version="3.11" apiDir="javadoc" >}} |
 |  3.10.2 | {{< releases version="3.10" apiDir="javadoc" >}} |
 |  3.9.0  | {{< releases version="3.9"  apiDir="javadoc" >}} |

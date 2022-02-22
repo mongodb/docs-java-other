@@ -13,8 +13,8 @@ The following guide provides information on using the MongoDB Scala Driver.
 
 ## Getting Started
 
-To get started, see the [Installation Guide]({{< relref "driver-scala/getting-started/installation.md" >}}), 
-the [Quick Start Guide]({{< relref "driver-scala/getting-started/quick-start.md" >}}) and the 
+To get started, see the [Installation Guide]({{< relref "driver-scala/getting-started/installation.md" >}}),
+the [Quick Start Guide]({{< relref "driver-scala/getting-started/quick-start.md" >}}) and the
 [Quick Start with Case Classes]({{< relref "driver-scala/getting-started/quick-start-case-class.md" >}}).
 
 ## Tutorials
@@ -26,8 +26,11 @@ For tutorials for some frequently used operations, see the [Tutorials section]({
 
 | Release | Documentation |
 |---------|---------------|
-|  4.1.1  | {{< releases version="4.1" >}} | 
-|  4.0.5  | {{< releases version="4.0" >}} | 
+|  4.4.x  | {{< releases version="4.4" >}} |
+|  4.3.x  | {{< releases version="4.3" >}} |
+|  4.2.x  | {{< releases version="4.2" >}} |
+|  4.1.1  | {{< releases version="4.1" >}} |
+|  4.0.5  | {{< releases version="4.0" >}} |
 |  2.9.0  | {{< releases version="2.9" apiDir="scaladoc" url="https://mongodb.github.io/mongo-scala-driver/" >}} |
 |  2.8.0  | {{< releases version="2.8" apiDir="scaladoc" url="https://mongodb.github.io/mongo-scala-driver/" >}} |
 |  2.7.0  | {{< releases version="2.7" apiDir="scaladoc" url="https://mongodb.github.io/mongo-scala-driver/" >}} |
