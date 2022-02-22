@@ -9,6 +9,11 @@ https://github.com/mongodb/docs-java
 
 ## Build Instructions
 
+:warning: **When building docs for a new version, make sure to update the following:**
+- `<this repo>/reference/config.toml` to point to the new base version
+- `<this repo>/landing/data/releases.toml` to link to the docs for the new version
+- any redirects such as the [Java sync docs redirect](https://github.com/mongodb/docs-java-other/pull/3/files#diff-0f1a8692163867f83ff7451f3018bae71d3d16dbee396abf03263784e5dda940)
+
 After making required changes, submit a pull request. Once your PR is approved and merged, run the `publish-docs` script with the version:
 
 ```sh
@@ -16,14 +21,15 @@ After making required changes, submit a pull request. Once your PR is approved a
 ```
 
 This will initiate a submodule (if necessary) that tracks the *gh-pages* branch
-of the [mongo-java-driver](https://github.com/mongodb/mongo-java-driver). It will
-then build the documents and copy items over as necessary (using rsync).
+of the [mongo-java-driver](https://github.com/mongodb/mongo-java-driver). It then
+builds the documents in a new directory in the submodule that corresponds to the
+new version name.
 
 ## Building API Documentation
 
 For major and minor releases, it is required to build the api docs. This
 can be done by navigating to your `mongo-java-driver` repo (*Note: NOT the submodule in this repo*) and executing the appropriate `gradlew` command
-after checking out the correct tag.
+after checking out the correct tag. Make sure you installed the Java version specified in the `:bson:compileJava` task on your machine.
 
 For example, to build the apidocs for the 4.4 release of driver:
 
@@ -38,6 +44,13 @@ if the `mongo-java-driver` repo is on a sibling level with this repo:
 ```sh
 cp -a ../mongo-java-driver/build/docs ./mongo-java-driver/<version>/apidocs
 ```
+
+Your submodule directory should contain a directory structure that resembles the following:
+
+```sh
+<this repo>/<submodule directory>/<version>/apidocs/{bson,mongodb-driver-core,mongodb-driver-sync,mongodb-driver-legacy, mongodb-driver-reactivestreams/}
+```
+
 
 ## Publishing
 
