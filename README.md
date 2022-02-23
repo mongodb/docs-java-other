@@ -9,10 +9,10 @@ https://github.com/mongodb/docs-java
 
 ## Build Instructions
 
-:warning: **When building docs for a new version, make sure to update the following:**
-- `<this repo>/reference/config.toml` to point to the new base version
-- `<this repo>/landing/data/releases.toml` to link to the docs for the new version
-- any redirects such as the [Java sync docs redirect](https://github.com/mongodb/docs-java-other/pull/3/files#diff-0f1a8692163867f83ff7451f3018bae71d3d16dbee396abf03263784e5dda940)
+:warning: **When building docs for a new version, update the following items:**
+- The `<this repo>/reference/config.toml` file to point to the new base version
+- The `<this repo>/landing/data/releases.toml` file to link to the docs for the new version
+- Redirects such as the [Java sync docs redirect](https://github.com/mongodb/docs-java-other/pull/3/files#diff-0f1a8692163867f83ff7451f3018bae71d3d16dbee396abf03263784e5dda940)
 
 After making required changes, submit a pull request. Once your PR is approved and merged, run the `publish-docs` script with the version:
 
@@ -27,11 +27,11 @@ new version name.
 
 ## Building API Documentation
 
-For major and minor releases, it is required to build the api docs. This
+For major and minor releases, it is required to build the API docs. This
 can be done by navigating to your `mongo-java-driver` repo (*Note: NOT the submodule in this repo*) and executing the appropriate `gradlew` command
-after checking out the correct tag. Make sure you installed the Java version specified in the `:bson:compileJava` task on your machine.
+after checking out the correct tag. Ensure you installed the Java version specified in the `:bson:compileJava` task in your development environment prior to building.
 
-For example, to build the apidocs for the 4.4 release of driver:
+For example, to build the API docs for the 4.4 release of driver:
 
 ```sh
 git checkout r4.4.0
