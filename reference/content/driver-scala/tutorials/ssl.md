@@ -33,7 +33,7 @@ val mongoClient: MongoClient = MongoClient("mongodb://localhost/?ssl=true")
 
 ### Specify TLS/SSL via `MongoClientSettings`
 
-To specify TLS/SSL with with [`MongoClientSettings`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoClientSettings$.html" >}}), set the `enabled` property to 
+To specify TLS/SSL with with [`MongoClientSettings`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoClientSettings$.html" >}}), set the `enabled` property to
 `true`, as in:
 
 ```scala
@@ -49,7 +49,7 @@ val client = MongoClient(settings)
 import javax.net.ssl.SSLContext
 ```
 
-To specify the [`javax.net.ssl.SSLContext`]({{< javaseref "api/javax/net/ssl/SSLContext.html" >}}) with 
+To specify the [`javax.net.ssl.SSLContext`]({{< javaseref "api/javax/net/ssl/SSLContext.html" >}}) with
 [`MongoClientSettings`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoClientSettings$.html" >}}), set the `sslContext` property, as in:
 
 ```scala
@@ -100,7 +100,7 @@ server's SSL certificate(s) matches the hostname(s) provided when
 constructing a [`MongoClient()`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoClient$.html" >}}).
 
 If your application needs to disable hostname verification, you must explicitly indicate
-this in [`MongoClientSettings`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoClientSettings$.html" >}}) 
+this in [`MongoClientSettings`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoClientSettings$.html" >}})
 
 ```scala
 val settings = MongoClientSettings.builder()
@@ -117,7 +117,7 @@ This section is based on the documentation for [Oracle JDK](https://www.oracle.c
 so some parts may be inapplicable to your JDK or to the custom TLS/SSL implementation you use.
 
 ### Configure Trust Store and Key Store
-One may either configure trust stores and key stores specific to the client via 
+One may either configure trust stores and key stores specific to the client via
 [`javax.net.ssl.SSLContext.init(KeyManager[] km, TrustManager[] tm, SecureRandom random)`]
 ({{< javaseref "api/javax/net/ssl/SSLContext.html#init-javax.net.ssl.KeyManager:A-javax.net.ssl.TrustManager:A-java.security.SecureRandom-" >}}),
 or set the JVM default ones.
@@ -149,7 +149,7 @@ keytool -importcert -trustcacerts -file <path to certificate authority file>
 #### Set the Default Key Store
 
 A typical application will also need to set several JVM system
-properties to ensure that the client *presents* an TLS/SSL [client certificate](https://docs.mongodb.com/manual/tutorial/configure-ssl/#set-up-mongod-and-mongos-with-client-certificate-validation) to the
+properties to ensure that the client *presents* an TLS/SSL [client certificate](https://www.mongodb.com/docs/manual/tutorial/configure-ssl/#set-up-mongod-and-mongos-with-client-certificate-validation) to the
 MongoDB server:
 
 - `javax.net.ssl.keyStore`
@@ -171,7 +171,7 @@ you can do the following:
 ```sh
 openssl pkcs12 -export -in <path to client certificate & private key file>
             -out <path to key store> -passout pass:<trust store password>
-``` 
+```
 
 For more information on configuring a Java application for TLS/SSL, please
 refer to the [`JSSE Reference Guide`]({{< javaseref "technotes/guides/security/jsse/JSSERefGuide.html" >}}).

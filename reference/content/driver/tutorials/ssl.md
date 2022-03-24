@@ -40,12 +40,12 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoClient;
 ```
 
-To specify TLS/SSL with with [`MongoClientSettings`]({{< apiref "mongodb-driver-core" "com/mongodb/MongoClientSettings" >}}), set the `enabled` property to 
+To specify TLS/SSL with with [`MongoClientSettings`]({{< apiref "mongodb-driver-core" "com/mongodb/MongoClientSettings" >}}), set the `enabled` property to
 `true`, as in:
 
 ```java
 MongoClientSettings settings = MongoClientSettings.builder()
-        .applyToSslSettings(builder -> 
+        .applyToSslSettings(builder ->
             builder.enabled(true))
         .build();
 MongoClient client = MongoClients.create(settings);
@@ -126,7 +126,7 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoClient;
 ```
 
-To specify TLS/SSL with with [`MongoClientSettings`]({{< apiref "mongodb-driver-core" "com/mongodb/MongoClientSettings" >}}), set the 
+To specify TLS/SSL with with [`MongoClientSettings`]({{< apiref "mongodb-driver-core" "com/mongodb/MongoClientSettings" >}}), set the
 `sslEnabled` property to `true`, as in:
 
 ```java
@@ -197,7 +197,7 @@ server's SSL certificate(s) matches the hostname(s) provided when
 constructing a [`MongoClient()`]({{< apiref "mongodb-driver-sync" "com/mongodb/client/MongoClient.html" >}}).
 
 If your application needs to disable hostname verification, you must explicitly indicate
-this in [`MongoClientSettings`]({{< apiref "mongodb-driver-core" "com/mongodb/MongoClientSettings" >}}) 
+this in [`MongoClientSettings`]({{< apiref "mongodb-driver-core" "com/mongodb/MongoClientSettings" >}})
 
 ```java
 MongoClientSettings settings = MongoClientSettings.builder()
@@ -211,10 +211,10 @@ MongoClientSettings settings = MongoClientSettings.builder()
 ## Common TLS/SSL Configuration Tasks
 
 This section is based on the documentation for [Oracle JDK](https://www.oracle.com/java/technologies/javase-downloads.html#JDK8),
-so some parts may be inapplicable to your JDK or to the custom TLS/SSL implementation you use. 
+so some parts may be inapplicable to your JDK or to the custom TLS/SSL implementation you use.
 
 ### Configure Trust Store and Key Store
-One may either configure trust stores and key stores specific to the client via 
+One may either configure trust stores and key stores specific to the client via
 [`javax.net.ssl.SSLContext.init(KeyManager[] km, TrustManager[] tm, SecureRandom random)`]
 ({{< javaseref "api/javax/net/ssl/SSLContext.html#init-javax.net.ssl.KeyManager:A-javax.net.ssl.TrustManager:A-java.security.SecureRandom-" >}}),
 or set the JVM default ones.
@@ -246,7 +246,8 @@ keytool -importcert -trustcacerts -file <path to certificate authority file>
 #### Set the Default Key Store
 
 A typical application will also need to set several JVM system
-properties to ensure that the client *presents* an TLS/SSL [client certificate](https://docs.mongodb.com/manual/tutorial/configure-ssl/#set-up-mongod-and-mongos-with-client-certificate-validation) to the
+properties to ensure that the client *presents* an TLS/SSL
+[client certificate](https://www.mongodb.com/docs/manual/tutorial/configure-ssl/#set-up-mongod-and-mongos-with-client-certificate-validation) to the
 MongoDB server:
 
 - `javax.net.ssl.keyStore`
@@ -268,7 +269,7 @@ you can do the following:
 ```sh
 openssl pkcs12 -export -in <path to client certificate & private key file>
             -out <path to key store> -passout pass:<trust store password>
-``` 
+```
 
 For more information on configuring a Java application for TLS/SSL, please
 refer to the [`JSSE Reference Guide`]({{< javaseref "technotes/guides/security/jsse/JSSERefGuide.html" >}}).
@@ -296,7 +297,7 @@ An application will need to set JVM system and security properties to ensure tha
 
 -  `ocsp.enable`:
       When set to `true`, this security property enables client-driven OCSP.
-      
+
 To configure an application to use client-driven OCSP, the application must already be set up to connect to a server using TLS. Setting these system properties is required to enable client-driven OCSP.
 
 {{% note %}}

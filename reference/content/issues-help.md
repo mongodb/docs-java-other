@@ -10,9 +10,9 @@ title = "Issues & Help"
 
 We are lucky to have a vibrant MongoDB Java community with lots of varying
 experience of using the Java driver.  We often find the quickest way to get support for
-general questions is through the [MongoDB Community Forums](https://community.mongodb.com/tags/c/drivers-odms-connectors/7/java-driver)
+general questions is through the [MongoDB Community Forums](https://www.mongodb.com/community/forums/tag/java)
 or through [stackoverflow](http://stackoverflow.com/questions/tagged/mongodb+java).  Please also
-refer to our own [support channels](https://docs.mongodb.com/manual/support/) documentation.
+refer to our own [support channels](https://www.mongodb.com/docs/manual/support/) documentation.
 
 ## Bugs / Feature Requests
 
@@ -26,7 +26,7 @@ please open a case in our issue management tool, JIRA:
 Bug reports in JIRA for the Java driver and the Core Server (i.e. SERVER) project are **public**.
 
 If you’ve identified a security vulnerability in a driver or any other
-MongoDB project, please report it according to the [instructions here](http://docs.mongodb.org/manual/tutorial/create-a-vulnerability-report).
+MongoDB project, please report it according to the [instructions here](https://www.mongodb.com/docs/manual/tutorial/create-a-vulnerability-report/).
 
 ## Pull Requests
 

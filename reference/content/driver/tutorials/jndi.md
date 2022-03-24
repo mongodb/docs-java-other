@@ -12,7 +12,7 @@ title = "JNDI"
 
 The driver includes a [JNDI]({{< javaseref "technotes/guides/jndi/index.html" >}}) ObjectFactory implementation,
 [`MongoClientFactory`]({{< apiref "mongodb-driver-sync" "com/mongodb/client/MongoClientFactory" >}}) ([`legacy version`]({{< apiref "mongodb-driver-legacy" "com/mongodb/client/jndi/MongoClientFactory" >}})), that returns `MongoClient` instances based on a
-[connection string](http://docs.mongodb.org/manual/reference/connection-string/).
+[connection string](https://www.mongodb.com/docs/manual/reference/connection-string/).
 
 ## Examples
 
@@ -40,7 +40,7 @@ The configuration of the `MongoClientFactory` differs depending on the applicati
 
 4. Add a binding to JBoss's naming subsystem configuration that references the above module, the `MongoClientFactory` class, and the
 connection string for the MongoDB cluster.
-                 
+
         <subsystem xmlns="urn:jboss:domain:naming:2.0">
             <bindings>
                 <object-factory name="java:global/MyMongoClient" module="org.mongodb" class="com.mongodb.client.MongoClientFactory">
