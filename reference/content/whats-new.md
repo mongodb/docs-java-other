@@ -202,7 +202,7 @@ Key new features of the 3.8 Java driver release:
 ### Transactions
 
 The Java driver now provides support for executing CRUD operations within a transaction (requires MongoDB 4.0).  See the
-[Transactions and MongoDB Drivers](https://www.mongodb.com/docs/upcoming/core/transactions/#transactions-and-mongodb-drivers) section
+[Transactions and MongoDB Drivers](https://www.mongodb.com/docs/manual/core/transactions/#transactions-and-mongodb-drivers) section
 of the documentation and select the `Java (Sync)` tab.
 
 ### Change Stream enhancements
@@ -561,7 +561,7 @@ For more information on collation, including the supported locales, refer to the
 [MongoDB handshake protocol](https://github.com/mongodb/specifications/blob/master/source/mongodb-handshake/handshake.rst).
 * Builders for [eight new aggregation pipeline stages]({{<docsref "release-notes/3.4/#aggregation" >}})
 * Helpers for creating [read-only views]({{<docsref "release-notes/3.4/#views" >}})
-* Support for the [linearizable read concern](https://www.mongodb.com/docs/upcoming/release-notes/3.4/#linearizable-read-concern)
+* Support for the [linearizable read concern](https://www.mongodb.com/docs/manual/release-notes/3.4/#linearizable-read-concern)
 
 ### Support for JNDI
 
