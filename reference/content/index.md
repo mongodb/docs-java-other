@@ -6,7 +6,7 @@ type = "index"
 
 ## MongoDB Java Driver Documentation
 
-Welcome to the MongoDB JVM driver documentation hub for the 4.4 drivers release. Please note that the primary documentation is now located [on the MongoDB domain](https://docs.mongodb.com/drivers/java/sync/current/)
+Welcome to the MongoDB JVM driver documentation hub for the 4.4 drivers release. Please note that the primary documentation is now located [on the MongoDB domain](https://www.mongodb.com/docs/drivers/java/sync/current/)
 
 ### What's New in 4.4
 

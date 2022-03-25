@@ -112,7 +112,7 @@ API as replica set transactions.
 * Most read operations are by default
   [automatically retried](https://github.com/mongodb/specifications/blob/master/source/retryable-reads/retryable-reads.rst). Supported read
   operations that fail with a retryable error are retried automatically and transparently.
-* [Retryable writes](https://docs.mongodb.com/manual/core/retryable-writes/) are now enabled by default. Supported write
+* [Retryable writes](https://www.mongodb.com/docs/manual/core/retryable-writes/) are now enabled by default. Supported write
   operations that fail with a retryable error are retried automatically and transparently, with at-most-once update semantics.
 * DNS [SRV](https://en.wikipedia.org/wiki/SRV_record) records are periodically polled in order to update the mongos proxy list without
   having to change client configuration or even restart the client application. This feature is particularly useful when used with a sharded
@@ -202,7 +202,7 @@ Key new features of the 3.8 Java driver release:
 ### Transactions
 
 The Java driver now provides support for executing CRUD operations within a transaction (requires MongoDB 4.0).  See the
-[Transactions and MongoDB Drivers](https://docs.mongodb.com/master/core/transactions/#transactions-and-mongodb-drivers) section
+[Transactions and MongoDB Drivers](https://www.mongodb.com/docs/manual/core/transactions/#transactions-and-mongodb-drivers) section
 of the documentation and select the `Java (Sync)` tab.
 
 ### Change Stream enhancements
@@ -561,7 +561,7 @@ For more information on collation, including the supported locales, refer to the
 [MongoDB handshake protocol](https://github.com/mongodb/specifications/blob/master/source/mongodb-handshake/handshake.rst).
 * Builders for [eight new aggregation pipeline stages]({{<docsref "release-notes/3.4/#aggregation" >}})
 * Helpers for creating [read-only views]({{<docsref "release-notes/3.4/#views" >}})
-* Support for the [linearizable read concern](https://docs.mongodb.com/master/release-notes/3.4/#linearizable-read-concern)
+* Support for the [linearizable read concern](https://www.mongodb.com/docs/manual/release-notes/3.4/#linearizable-read-concern)
 
 ### Support for JNDI
 

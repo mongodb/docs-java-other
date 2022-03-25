@@ -4,7 +4,7 @@ This repo contains the documentation for the Reactive Streams and Scala variants
 [MongoDB Java Driver](https://github.com/mongodb/mongo-java-driver).
 
 Documentation for the synchronous Java driver is available at
-https://docs.mongodb.com/drivers/java/sync and the source is available at
+https://www.mongodb.com/docs/drivers/java/sync and the source is available at
 https://github.com/mongodb/docs-java
 
 ## Build Instructions

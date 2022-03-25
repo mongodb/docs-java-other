@@ -13,15 +13,15 @@ title = "Client Side Encryption"
 New in MongoDB 4.2 client side encryption allows administrators and developers to encrypt specific data fields in addition to other
 MongoDB encryption features.
 
-With field level encryption, developers can encrypt fields client side without any server-side 
-configuration or directives. Client-side field level encryption supports workloads where applications must guarantee that 
+With field level encryption, developers can encrypt fields client side without any server-side
+configuration or directives. Client-side field level encryption supports workloads where applications must guarantee that
 unauthorized parties, including server administrators, cannot read the encrypted data.
 
 ## Installation
 
-The recommended way to get started using field level encryption in your project is with a dependency management system. 
-Field level encryption requires additional packages to be installed as well as the driver itself.  
-See the [installation]({{< relref "driver/getting-started/installation.md" >}}) for instructions on how to install the MongoDB driver. 
+The recommended way to get started using field level encryption in your project is with a dependency management system.
+Field level encryption requires additional packages to be installed as well as the driver itself.
+See the [installation]({{< relref "driver/getting-started/installation.md" >}}) for instructions on how to install the MongoDB driver.
 
 {{< distroPicker >}}
 
@@ -33,17 +33,17 @@ There is a separate jar file containing`libmongocrypt` bindings.
 
 ### mongocryptd configuration
 
-`libmongocrypt` requires the `mongocryptd` daemon / process to be running. A specific daemon / process uri can be configured in the 
+`libmongocrypt` requires the `mongocryptd` daemon / process to be running. A specific daemon / process uri can be configured in the
 `AutoEncryptionSettings` class by setting `mongocryptdURI` in the `extraOptions`.
 
-For more information about mongocryptd see the [official documentation](https://docs.mongodb.com/manual/core/security-client-side-encryption/).
+For more information about mongocryptd see the [official documentation](https://www.mongodb.com/docs/manual/core/security-client-side-encryption/).
 
 
 ### Examples
 
 The following is a sample app that assumes the **key** and **schema** have already been created in MongoDB. The example uses a local key,
-however using either of the AWS / Azure / GCP Key Management Service is also an option. The data in the `encryptedField` field is 
-automatically encrypted on the insert and decrypted when using find on the client side. The following code snippet comes from the 
+however using either of the AWS / Azure / GCP Key Management Service is also an option. The data in the `encryptedField` field is
+automatically encrypted on the insert and decrypted when using find on the client side. The following code snippet comes from the
 [`ClientSideEncryptionSimpleTour.java`]({{< srcref "driver-sync/src/examples/tour/ClientSideEncryptionSimpleTour.java" >}}) example code
 that can be found with the driver source on github:
 
@@ -100,7 +100,7 @@ Auto encryption is an **enterprise** only feature.
 {{% /note %}}
 
 The following example shows how to configure the `AutoEncryptionSettings` instance to create a new key and setting the json schema map.
-The full code snippet can be found in 
+The full code snippet can be found in
 [`ClientSideEncryptionAutoEncryptionSettingsTour.java`]({{< srcref "driver-sync/src/examples/tour/ClientSideEncryptionAutoEncryptionSettingsTour.java" >}}):
 
 ```java
@@ -158,8 +158,8 @@ AutoEncryptionSettings autoEncryptionSettings = AutoEncryptionSettings.builder()
 ```
 
 #### Explicit Encryption and Decryption
-Explicit encryption and decryption is a **MongoDB community** feature and does not use the `mongocryptd` process. Explicit encryption is 
-provided by the `ClientEncryption` class. 
+Explicit encryption and decryption is a **MongoDB community** feature and does not use the `mongocryptd` process. Explicit encryption is
+provided by the `ClientEncryption` class.
 The full code snippet can be found in [`ClientSideEncryptionExplicitEncryptionAndDecryptionTour.java`]({{< srcref "driver-sync/src/examples/tour/ClientSideEncryptionExplicitEncryptionAndDecryptionTour.java" >}}):
 
 ```
@@ -221,7 +221,7 @@ System.out.println(
 
 #### Explicit Encryption and Auto Decryption
 
-Although automatic encryption requires MongoDB 4.2 enterprise or a MongoDB 4.2 Atlas cluster, automatic decryption is supported for all 
+Although automatic encryption requires MongoDB 4.2 enterprise or a MongoDB 4.2 Atlas cluster, automatic decryption is supported for all
 users. To configure automatic decryption without automatic encryption set `bypassAutoEncryption(true)`. The full code snippet can be found in [`ClientSideEncryptionExplicitEncryptionOnlyTour.java`]({{< srcref "driver-sync/src/examples/tour/ClientSideEncryptionExplicitEncryptionOnlyTour.java" >}}):
 
 ```

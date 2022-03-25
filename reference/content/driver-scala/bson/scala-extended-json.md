@@ -10,25 +10,25 @@ title = "Extended JSON"
 
 ## MongoDB Extended JSON
 
-The Scala driver supports reading and writing BSON documents represented as  
-[MongoDB Extended JSON](http://docs.mongodb.org/manual/reference/mongodb-extended-json/).  Both variants are supported: 
+The Scala driver supports reading and writing BSON documents represented as
+[MongoDB Extended JSON](https://www.mongodb.com/docs/manual/reference/mongodb-extended-json/). Both variants are supported:
 
-- Strict Mode: representations of BSON types that conform to the [JSON RFC](http://www.json.org/). This is the 
-format that [mongoexport](http://docs.mongodb.org/manual/reference/program/mongoexport/) produces and 
-[mongoimport](http://docs.mongodb.org/manual/reference/program/mongoimport/) consumes.
-- Shell Mode: a superset of JSON that the 
-[MongoDB shell](http://docs.mongodb.org/manual/tutorial/getting-started-with-the-mongo-shell/) can parse. 
+- Strict Mode: representations of BSON types that conform to the [JSON RFC](http://www.json.org/). This is the
+format that [mongoexport](https://www.mongodb.com/docs/database-tools/mongoexport/) produces and
+[mongoimport](https://www.mongodb.com/docs/database-tools/mongoimport/) consumes.
+- Shell Mode: a superset of JSON that the
+[MongoDB shell](https://www.mongodb.com/docs/manual/reference/program/mongo/) can parse.
 
 Furthermore, the `Document` provides two sets of convenience methods for this purpose:
 
 - Document.toJson(): a set of overloaded methods that convert a `Document` instance to a JSON string
 - Document(json): a set of overloaded static factory methods that convert a JSON string to a `Document` instance
- 
+
 ## Writing JSON
 
-Consider the task of implementing a [mongoexport](http://docs.mongodb.org/manual/reference/program/mongoexport/)-like tool using the 
-Scala driver.  
-    
+Consider the task of implementing a [mongoexport](https://www.mongodb.com/docs/database-tools/mongoexport/)-like tool using the
+Scala driver.
+
 ```scala
 val fileName =    // initialize to the path of the file to write to
 val collection =  // initialize the collection from which you want to query
@@ -40,11 +40,11 @@ collection.find().subscribe(
       () => output.close())
 ```
 
-The `Document.toJson()` method constructs an instance of a `JsonWriter` with its default settings, which will write in strict mode with no new lines or indentation.  
+The `Document.toJson()` method constructs an instance of a `JsonWriter` with its default settings, which will write in strict mode with no new lines or indentation.
 
-You can override this default behavior by using one of the overloads of `toJson()`.  As an example, consider the task of writing a JSON string 
+You can override this default behavior by using one of the overloads of `toJson()`.  As an example, consider the task of writing a JSON string
 that can be copied and pasted into the MongoDB shell:
- 
+
 ```scala
 import java.text.SimpleDateFormat
 
@@ -56,16 +56,16 @@ println(doc.toJson(new JsonWriterSettings(JsonMode.SHELL)))
 ```
 
 This code snippet will print out MongoDB shell-compatible JSON, which can then be pasted into the shell:
- 
+
 ```javascript
 { "startDate" : { "$gt" : ISODate("2014-01-01T05:00:00.000Z"), "$lt" : ISODate("2015-01-01T05:00:00.000Z") } }
 ```
 
 ## Reading JSON
 
-Consider the task of implementing a [mongoimport](http://docs.mongodb.org/manual/reference/program/mongoimport/)-like tool using the 
-Java driver.  
-    
+Consider the task of implementing a [mongoimport](https://www.mongodb.com/docs/database-tools/mongoimport/)-like tool using the
+Java driver.
+
 ```scala
 import scala.io.Source
 val fileName =    // initialize to the path of the file to read from
@@ -81,19 +81,19 @@ try {
 ```
 
 The `Document(json)` companion helper method constructs an instance of a `JsonReader` with the given string and returns an instance of an
-equivalent Document instance. `JsonReader` automatically detects the JSON flavor in the string, so you do not need to specify it. 
+equivalent Document instance. `JsonReader` automatically detects the JSON flavor in the string, so you do not need to specify it.
 
 {{% note %}}
 In the [tools]({{< srcref "examples/scripts" >}}) examples directory, there is sample code for `mongoimport` and `mongoexport`.
-These examples are more fully featured than the above code snippets. They also provide an example of asynchronous error handling, as well 
+These examples are more fully featured than the above code snippets. They also provide an example of asynchronous error handling, as well
 as chaining observables to enforce insertion order on import.
 {{% /note %}}
 
 ### Reading and Writing JSON Directly
-If you do not need a document and only want to deal with JSON, you can use `JsonObject` to read and write JSON directly. `JsonObject` 
-is simply a wrapper class that takes in a `String` in the constructor and returns the `String` in the `getJson()` method. 
-Reading and writing JSON directly is more efficient than constructing a `Document` first and then calling `toJson()`, and it is also more efficient than calling `Document#parse`. 
-The codec responsible for reading/writing JSON (`JsonObjectCodec`) is part of the default registry, so doing this is very simple 
+If you do not need a document and only want to deal with JSON, you can use `JsonObject` to read and write JSON directly. `JsonObject`
+is simply a wrapper class that takes in a `String` in the constructor and returns the `String` in the `getJson()` method.
+Reading and writing JSON directly is more efficient than constructing a `Document` first and then calling `toJson()`, and it is also more efficient than calling `Document#parse`.
+The codec responsible for reading/writing JSON (`JsonObjectCodec`) is part of the default registry, so doing this is very simple
 and demonstrated by the following example:
 
 ```scala

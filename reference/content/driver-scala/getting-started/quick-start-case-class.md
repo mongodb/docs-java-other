@@ -10,7 +10,7 @@ title = "Quick Start - Case Classes"
 
 # Quick Start with case classes
 
-The following code snippets come from the `QuickTourCaseClass.scala` example code that can be found with the 
+The following code snippets come from the `QuickTourCaseClass.scala` example code that can be found with the
 [driver source]({{< srcref "examples/src/test/scala/tour/QuickStartCaseClass.scala" >}}).
 
 {{% note class="important" %}}
@@ -34,15 +34,15 @@ case class Person(_id: ObjectId, firstName: String, lastName: String)
 ```
 
 {{% note %}}
-You'll notice in the companion object the apply method can automatically assign a `_id` when creating new instances that don't include it. 
-In MongoDB the `_id` field represents the primary key for a document, so by having a `_id` field in the case class it allows access to the 
-primary key. 
+You'll notice in the companion object the apply method can automatically assign a `_id` when creating new instances that don't include it.
+In MongoDB the `_id` field represents the primary key for a document, so by having a `_id` field in the case class it allows access to the
+primary key.
 {{% /note %}}
 
 ## Configuring case classes
 
-Then when using `Person` with a collection, there must be a `Codec` that can convert it to and from `BSON`. The 
-`org.mongodb.scala.bson.codecs.Macros` companion object provides macros that can automatically generate a codec for case classes at compile 
+Then when using `Person` with a collection, there must be a `Codec` that can convert it to and from `BSON`. The
+`org.mongodb.scala.bson.codecs.Macros` companion object provides macros that can automatically generate a codec for case classes at compile
 time. In the following example we create a new `CodecRegistry` that includes a codec for the `Person` case class:
 
 
@@ -54,7 +54,7 @@ import org.bson.codecs.configuration.CodecRegistries.{fromRegistries, fromProvid
 val codecRegistry = fromRegistries(fromProviders(classOf[Person]), DEFAULT_CODEC_REGISTRY )
 ```
 
-Once the `codecRegistry` is configured, the next step is to create a `MongoCollection[Person]`. The following example uses `test` 
+Once the `codecRegistry` is configured, the next step is to create a `MongoCollection[Person]`. The following example uses `test`
 collection on the `mydb` database.
 
 ```scala
@@ -65,7 +65,7 @@ val collection: MongoCollection[Person] = database.getCollection("test")
 ```
 
 {{% note %}}
-The `codecRegistry` can be set when creating a `MongoClient`, at the database level or at the collection level. The API is flexible, 
+The `codecRegistry` can be set when creating a `MongoClient`, at the database level or at the collection level. The API is flexible,
 allowing for different `CodecRegistries` as required.
 {{% /note %}}
 
@@ -80,7 +80,7 @@ collection.insertOne(person).results()
 
 ## Add multiple instances
 
-To add multiple `Person` instances, use the `insertMany()`. The following uses the `printResults()` implicit and blocks until the observer 
+To add multiple `Person` instances, use the `insertMany()`. The following uses the `printResults()` implicit and blocks until the observer
 is completed and then prints each result:
 
 ```scala
@@ -136,7 +136,7 @@ collection.find().printResults()
 
 ## Get a single person with a query filter
 
-To return a subset of the documents in our collection, pass a filter to the find() method . For example, the following will return the first 
+To return a subset of the documents in our collection, pass a filter to the find() method . For example, the following will return the first
 `Person` whose first name is Ida:
 
 ```scala
@@ -169,10 +169,10 @@ Which will print out the Person instances for Gertrude, George and Grace.
 
 ## Updating documents
 
-There are numerous [update operators](http://docs.mongodb.org/manual/reference/operator/update-field/)
+There are numerous [update operators](https://www.mongodb.com/docs/manual/reference/operator/update-field/)
 supported by MongoDB.  Use the [Updates]({{< apiref "mongo-scala-driver" "org/mongodb/scala/model/Updates$" >}}) helpers to help update documents in the database.
 
-The following update corrects the hyphenation for Tim Berners-Lee: 
+The following update corrects the hyphenation for Tim Berners-Lee:
 
 ```scala
 collection.updateOne(equal("lastName", "Berners Lee"), set("lastName", "Berners-Lee")).printHeadResult("Update Result: ")
@@ -183,12 +183,12 @@ which provides information about the operation including the number of documents
 
 ## Deleting documents
 
-To delete at most a single document (may be 0 if none match the filter) use the [`deleteOne`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoCollection.html#deleteOne(filter:org.bson.conversions.Bson):org.mongodb.scala.Observable[org.mongodb.scala.result.DeleteResult]" >}}) 
+To delete at most a single document (may be 0 if none match the filter) use the [`deleteOne`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoCollection.html#deleteOne(filter:org.bson.conversions.Bson):org.mongodb.scala.Observable[org.mongodb.scala.result.DeleteResult]" >}})
 method:
 
 ```scala
 collection.deleteOne(equal("firstName", "Zaphod")).printHeadResult("Delete Result: ")
 ```
 
-As you can see the API allows for easy use of CRUD operations with case classes. See the [Bson macros]({{< relref "driver-scala/bson/macros.md" >}}) 
+As you can see the API allows for easy use of CRUD operations with case classes. See the [Bson macros]({{< relref "driver-scala/bson/macros.md" >}})
 documentation for further information about the macros.
