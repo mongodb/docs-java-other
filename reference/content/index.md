@@ -8,9 +8,9 @@ type = "index"
 
 Welcome to the MongoDB JVM driver documentation hub for the 4.4 drivers release. Please note that the primary documentation is now located [on the MongoDB domain](https://www.mongodb.com/docs/drivers/java/sync/current/)
 
-### What's New in 4.4
+### What's New in 4.5
 
-For key new features of 4.4, see [What's New]({{< relref "whats-new.md" >}}).
+For key new features of 4.5, see [What's New]({{< relref "whats-new.md" >}}).
 
 ### Upgrade
 
