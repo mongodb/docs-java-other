@@ -195,10 +195,10 @@ This example computes the accumulated rainfall and the average temperature over 
 from more fine-grained measurements presented via the `rainfall` and `temperature` fields:
 
 ```scala
-val pastMonth: Window = Windows.timeRange(-1, Windows.Bound.CURRENT, MongoTimeUnit.MONTH)
-setWindowFields("$localityId", Sorts.ascending("measurementDateTime"),
-  WindowedComputations.sum("monthlyRainfall", "$rainfall", pastMonth),
-  WindowedComputations.avg("monthlyAvgTemp", "$temperature", pastMonth))
+val pastMonth: Window = Windows.timeRange(-1, MongoTimeUnit.MONTH, Windows.Bound.CURRENT)
+setWindowFields(Some("$localityId"), Some(Sorts.ascending("measurementDateTime")),
+  WindowedComputations.sum("monthlyRainfall", "$rainfall", Some(pastMonth)),
+  WindowedComputations.avg("monthlyAvgTemp", "$temperature", Some(pastMonth)))
 ```
 
 ### Creating a Pipeline
