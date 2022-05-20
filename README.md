@@ -7,6 +7,12 @@ Documentation for the synchronous Java driver is available at
 https://www.mongodb.com/docs/drivers/java/sync and the source is available at
 https://github.com/mongodb/docs-java
 
+## Build Requirements
+
+- Intel Mac or x64 PC (for hugo)
+- [hugo v0.25.x](https://github.com/gohugoio/hugo/releases/tag/v0.25.1) (any other version may not generate the documentation correctly)
+
+
 ## Build Instructions
 
 :warning: **When building docs for a new version, update the following items:**
