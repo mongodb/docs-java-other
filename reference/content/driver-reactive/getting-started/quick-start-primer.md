@@ -68,7 +68,7 @@ do block on the results of one example before starting the next, so as to ensure
 
 1. ObservableSubscriber
 
-    The base subscriber class is the [`ObservableSubscriber<T>`]({{< srcref "driver-reactive-streams/src/examples/reactivestreams/tour/src/main/tour/SubscriberHelpers.java" >}}), 
+    The base subscriber class is the [`ObservableSubscriber<T>`]({{< srcref "driver-reactive-streams/src/examples/reactivestreams/helpers/SubscriberHelpers.java" >}}), 
     a Subscriber that stores the results of the `Publisher<T>`. It also contains an `await()` method so we can block for results to ensure the state of 
     the database before going on to the next example.
 
