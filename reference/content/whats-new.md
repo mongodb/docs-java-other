@@ -9,11 +9,11 @@ title = "What's New"
 
 # What's new in 4.6
 
-* Refer to [What's New - Java Sync Documentation](https://www.mongodb.com/drivers/java/sync/v4.6) for more information.
+* Refer to [What's New - Java Sync Documentation](https://www.mongodb.com/docs/drivers/java/sync/v4.6/whats-new/) for more information.
 
 # What's new in 4.5
 
-* Refer to [What's New - Java Sync Documentation](https://www.mongodb.com/drivers/java/sync/v4.5) for more information.
+* Refer to [What's New - Java Sync Documentation](https://www.mongodb.com/docs/drivers/java/sync/v4.5/whats-new/) for more information.
 
 # What's new in 4.4
 
