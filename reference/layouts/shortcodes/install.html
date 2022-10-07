@@ -31,7 +31,7 @@
 <section class="gradle hidden">
 <pre><code>
   dependencies {
-      compile '{{$groupId}}:{{$artifactId}}:{{$version}}{{- if $scalaVersion -}}_{{$scalaVersion}}{{- end -}}{{- if $classifier -}}:{{$classifier}}{{- end -}}'
+      implementation '{{$groupId}}:{{$artifactId}}:{{$version}}{{- if $scalaVersion -}}_{{$scalaVersion}}{{- end -}}{{- if $classifier -}}:{{$classifier}}{{- end -}}'
   }
   repositories {
     maven {
@@ -64,7 +64,7 @@
 <section class="gradle hidden">
 <pre><code>
   dependencies {
-      compile '{{$groupId}}:{{$artifactId}}:{{$version}}{{- if $scalaVersion -}}_{{$scalaVersion}}{{- end -}}{{- if $classifier -}}:{{$classifier}}{{- end -}}'
+      implementation '{{$groupId}}:{{$artifactId}}:{{$version}}{{- if $scalaVersion -}}_{{$scalaVersion}}{{- end -}}{{- if $classifier -}}:{{$classifier}}{{- end -}}'
   }
 
 </code></pre>
