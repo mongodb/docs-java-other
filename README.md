@@ -10,8 +10,8 @@ The aforementioned documentation resides in the "gh-pages" branch of
 the [MongoDB Java Driver](https://github.com/mongodb/mongo-java-driver).
 
 For the current Java Sync driver reference documentation, see the
-[https://www.mongodb.com/docs/drivers/java/sync](Java Sync reference docs site)
-or the source in the [https://github.com/mongodb/docs-java](docs-java repository).
+[Java Sync reference docs site](https://www.mongodb.com/docs/drivers/java/sync)
+or the source in the [docs-java repository](https://github.com/mongodb/docs-java).
 
 ## Build Requirements
 
