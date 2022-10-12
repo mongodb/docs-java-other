@@ -7,7 +7,7 @@ title = "What's New"
   pre = "<i class='fa fa-level-up'></i>"
 +++
 
-For versions v4.5 and later, refer to the [What's New - Java Sync Documentation](https://www.mongodb.com/docs/drivers/java/sync/v4.6/whats-new/).
+For versions v4.5 and later, refer to the [What's New - Java Sync Documentation](https://www.mongodb.com/docs/drivers/java/sync/current/whats-new/).
 
 # What's new in 4.4
 
