@@ -19,7 +19,7 @@ referenceDir="reference"
 landingDir="landing"
 
 echo "Adding mongo-java-driver submodule (if necessary)..."
-git submodule add -b gh-pages https://github.com/mongodb/mongo-java-driver.git 2> /dev/null && git submodule update --remote
+git submodule add -b gh-pages https://github.com/mongodb/mongo-java-driver.git 2> /dev/null && git submodule update --init --recursive --remote
 
 # make the reference docs
 echo "[START] Building reference docs version: ${version}"
