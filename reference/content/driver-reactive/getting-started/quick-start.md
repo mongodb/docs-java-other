@@ -266,7 +266,7 @@ To insert these documents to the collection, pass the list of documents to the
 
 ```java
 var subscriber = new OperationSubscriber<InsertManyResult>();
-coll.insertMany(documents).subscribe(subscriber);
+collection.insertMany(documents).subscribe(subscriber);
 // Wait for the insertMany operation to complete
 subscriber.await();
 ```
