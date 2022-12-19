@@ -190,7 +190,10 @@ Once you have the `MongoCollection` object, you can insert documents into the co
 To insert a single document into the collection, you can use the collection's [`insertOne()`]({{< apiref "mongodb-driver-reactivestreams" "com/mongodb/reactivestreams/client/MongoCollection.html#insertOne(TDocument)" >}}) method.
 
 ```java
-collection.insertOne(doc).subscribe(new OperationSubscriber<InsertOneResult>());
+var subscriber = new OperationSubscriber<InsertOneResult>();
+collection.insertOne(doc).subscribe(subscriber);
+// Wait for the insertOne operation to complete
+subscriber.await();
 ```
 
 {{% note %}}
@@ -262,7 +265,10 @@ To insert these documents to the collection, pass the list of documents to the
 [`insertMany()`]({{< apiref "mongodb-driver-reactivestreams" "com/mongodb/reactivestreams/client/MongoCollection.html#insertMany(java.util.List)" >}}) method.
 
 ```java
-collection.insertMany(documents).subscribe(new ObservableSubscriber<InsertManyResult>());
+var subscriber = new OperationSubscriber<InsertManyResult>();
+collection.insertMany(documents).subscribe(subscriber);
+// Wait for the insertMany operation to complete
+subscriber.await();
 ```
 
 Here we block on the `Publisher` to finish so that when we call the next operation we know the data has been inserted into the database!
