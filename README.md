@@ -30,7 +30,9 @@ or the source in the [docs-java repository](https://github.com/mongodb/docs-java
 
 After updating the documentation, submit a pull request for approval.
 
-Once your PR is approved and merged, run the `publish-docs` script with the version:
+Once your PR is approved and merged, pull the latest changes.
+Then run the `publish-docs` script with the version using the
+format `<major>.<minor>`:
 
 ```sh
 ./publish-docs <version, e.g. 4.7>
