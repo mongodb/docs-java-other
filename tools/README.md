@@ -5,7 +5,7 @@
 The legacy documentation for MongoDB JVM-based drivers (Java Sync, Java RS, and Scala)
 were built with an older version of [``hugo``](https://github.com/gohugoio/hugo) and were
 hosted on GitHub Pages. Since the Java RS and Scala driver documentation hasn't been
-transitioned to MongoDB's Snooty Platform yet, we need to continue to publish the new
+transitioned to MongoDB's Snooty platform yet, we need to continue to publish the new
 documentation for each major and minor version release using the old tools.
 
 The documentation is built with the static site generator, ``hugo``. However, the
