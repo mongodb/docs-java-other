@@ -19,7 +19,7 @@ or the source in the [docs-java repository](https://github.com/mongodb/docs-java
 - [hugo v0.25.x](https://github.com/gohugoio/hugo/releases/tag/v0.25.1) (any other version may not generate the documentation correctly)
 - The [https://github.com/mongodb/docs-java-other](docs-java-other) and [https://github.com/mongodb/mongo-java-driver](mongo-java-driver) repos cloned to your local machine (ensure you have appropriate SSH keys to access them) 
 
-:warning: **If you are running on an Apple M1 CPU, you may not be able to find a working binary for Hugo v0.25.x.** and will need to set up an Ubuntu Docker Image for the linux/amd64 arch. See [docker-java-gh-docs](https://github.com/ccho-mongodb/miscellaneous-tools/blob/master/docker-java-gh-docs/README.md) for information on setting this up.
+:warning: **If you are running on an Apple M1 CPU, you may not be able to find a working binary for Hugo v0.25.x.** and will need to set up an Ubuntu Docker Image for the linux/amd64 arch. See [docker-java-gh-docs](https://github.com/mongodb/docs-java-other/tree/main/tools/README.md) for information on setting this up.
 
 ## Build Instructions
 
