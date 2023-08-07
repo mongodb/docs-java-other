@@ -43,7 +43,7 @@ For additional information on connecting to MongoDB, see [Connect to MongoDB]({{
 To run the `buildInfo` command, construct a [`Document`]({{< apiref "bson" "org/bson/Document.html" >}})
 object that specifies the command and pass it to the `runCommand()` method.
 
-The following runs the [`buildInfo`]({{<docsref "reference/command/buildInfo" >}}) command and prints the results:
+The following sample code runs the [`buildInfo`]({{<docsref "reference/command/buildInfo" >}}) command and prints the results:
 
 ```java
 Document buildInfoResults = database.runCommand(new Document("buildInfo", 1));

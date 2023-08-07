@@ -44,7 +44,7 @@ For additional information on connecting to MongoDB, see [Connect to MongoDB]({{
 To run the `buildInfo` command, construct a [`Document`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/bson/index.html#Document:org.mongodb.scala.bson.collection.immutable.Document.type" >}})
 object that specifies the command and pass it to the `runCommand()` method.
 
-The following runs the [`buildInfo`]({{<docsref "reference/command/buildInfo" >}}) command and prints the results:
+The following sample code runs the [`buildInfo`]({{<docsref "reference/command/buildInfo" >}}) command and prints the results:
 
 ```scala
 database.runCommand(Document("buildInfo" -> 1)).printResults()
