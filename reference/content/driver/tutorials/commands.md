@@ -38,19 +38,16 @@ MongoDatabase database = mongoClient.getDatabase("test");
 
 For additional information on connecting to MongoDB, see [Connect to MongoDB]({{< ref "connect-to-mongodb.md" >}}).
 
-## Run `buildInfo` and `collStats` Commands
+## Run the `buildInfo` Command
 
-To run a command, construct a [`Document`]({{< apiref "bson" "org/bson/Document.html" >}})
+To run the `buildInfo` command, construct a [`Document`]({{< apiref "bson" "org/bson/Document.html" >}})
 object that specifies the command and pass it to the `runCommand()` method.
 
-The following runs the [`buildInfo`]({{<docsref "reference/command/buildInfo" >}}) command and the [`collStats`]({{<docsref "reference/command/collStats" >}}) command:
+The following sample code runs the [`buildInfo`]({{<docsref "reference/command/buildInfo" >}}) command and prints the results:
 
 ```java
 Document buildInfoResults = database.runCommand(new Document("buildInfo", 1));
 System.out.println(buildInfoResults.toJson());
-
-Document collStatsResults = database.runCommand(new Document("collStats", "restaurants"));
-System.out.println(collStatsResults.toJson());
 ```
 
 For a list of available MongoDB commands, see [MongoDB commands]({{<docsref "reference/command" >}}).

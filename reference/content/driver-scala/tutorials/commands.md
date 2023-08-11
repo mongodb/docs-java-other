@@ -39,17 +39,15 @@ val database: MongoDatabase = mongoClient.getDatabase("test")
 
 For additional information on connecting to MongoDB, see [Connect to MongoDB]({{< ref "connect-to-mongodb.md" >}}).
 
-## Run `buildInfo` and `collStats` Commands
+## Run the `buildInfo` Command
 
-To run a command, construct a [`Document`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/bson/index.html#Document:org.mongodb.scala.bson.collection.immutable.Document.type" >}})
+To run the `buildInfo` command, construct a [`Document`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/bson/index.html#Document:org.mongodb.scala.bson.collection.immutable.Document.type" >}})
 object that specifies the command and pass it to the `runCommand()` method.
 
-The following runs the [`buildInfo`]({{<docsref "reference/command/buildInfo" >}}) command and the [`collStats`]({{<docsref "reference/command/collStats" >}}) command:
+The following sample code runs the [`buildInfo`]({{<docsref "reference/command/buildInfo" >}}) command and prints the results:
 
 ```scala
 database.runCommand(Document("buildInfo" -> 1)).printResults()
-
-database.runCommand(Document("collStats" -> "restaurants")).printResults()
 ```
 
 For a list of available MongoDB commands, see [MongoDB commands]({{<docsref "reference/command" >}}).
