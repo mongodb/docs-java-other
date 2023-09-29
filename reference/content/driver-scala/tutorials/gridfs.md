@@ -144,6 +144,7 @@ If you should need to rename a file, then use the [`rename`]({{< apiref "mongo-s
 The following example renames a file to "mongodbTutorial":
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 val fileId: ObjectId = ??? //ObjectId of a file uploaded to GridFS
 
 gridFSBucket.rename(fileId, "mongodbTutorial").printResults()
@@ -162,6 +163,7 @@ To delete a file from the `GridFSBucket` use the [`delete`]({{< apiref "mongo-sc
 The following example deletes a file from the `GridFSBucket`:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 val fileId: ObjectId = ??? //ObjectId of a file uploaded to GridFS
 
 gridFSBucket.delete(fileId).printResults()

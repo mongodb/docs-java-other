@@ -50,12 +50,14 @@ To query the collection, you can use the collection's [`find()`]({{< apiref "mon
 You can call the method without any arguments to query all documents in a collection:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.find().printResults()
 ```
 
 Or pass a filter to query for documents that match the filter criteria:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.find(equal("name", "456 Cookies Shop"))
           .printResults()
 ```
@@ -69,6 +71,7 @@ To query for documents that match certain conditions, pass a filter document to 
 To specify an empty filter (i.e. match all documents in a collection), use an empty [`Document`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/bson/index.html#Document:org.mongodb.scala.bson.collection.immutable.Document.type" >}}) object.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.find(Document()).printResults()
 ```
 {{% note class="tip"%}}
@@ -76,6 +79,7 @@ For the [`find()`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoColle
 {{% /note %}}
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.find().printResults()
 ```
 
@@ -90,6 +94,7 @@ Consider the following `find` operation which includes a filter `Document` which
 - the `categories` field equals `"Bakery"` (or if `categories` is an array, contains the string `"Bakery"` as an element):
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.find(
      Document("stars" -> Document("$gte" -> 2, "$lt"-> 5, "categories" -> "Bakery")))
     .printResults()
@@ -98,6 +103,7 @@ collection.find(
 The following example specifies the same filter condition using the [`Filters`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/model/Filters$.html" >}}) helper methods:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.find(and(gte("stars", 2), lt("stars", 5), equal("categories", "Bakery")))
           .printResults()
 ```
@@ -116,6 +122,7 @@ By default, queries in MongoDB return all fields in matching documents. To speci
 Consider the following `find` operation which includes a projection `Document` which specifies that the matching documents return only the `name` field, `stars` field, and the `categories` field.
 
 ```scala
+// Note: this code calls methods from a custom implicit helper referenced in the Quick Start Primer
 collection.find(and(gte("stars", 2), lt("stars", 5), equal("categories", "Bakery")))
           .projection(Document("name" -> 1, "stars" -> 1, "categories" -> 1, "_id" -> 0))
           .printResults()
@@ -125,6 +132,7 @@ To facilitate the creation of projection documents, the Scala driver provides th
 [`Projections`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/model/Projections$.html" >}}) class.
 
 ```scala
+// Note: this code calls methods from a custom implicit helper referenced in the Quick Start Primer
 collection.find(and(gte("stars", 2), lt("stars", 5), equal("categories", "Bakery")))
           .projection(fields(include("name", "stars", "categories"), excludeId()))
           .printResults()
@@ -140,6 +148,7 @@ see the [Text Search tutorial]({{<relref "driver-scala/tutorials/text-search.md"
 To sort documents, pass a [sort specification document]({{<docsref "reference/method/cursor.sort/#cursor.sort" >}}) to the [`FindObservable.sort()`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/FindObservable.html#sort(sort:org.mongodb.scala.bson.conversions.Bson):org.mongodb.scala.FindObservable[TResult]" >}}) method.  The Scala driver provides [`Sorts`]({{< relref "builders/sorts.md" >}}) helpers to facilitate the sort specification document.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.find(and(gte("stars", 2), lt("stars", 5), equal("categories", "Bakery")))
           .sort(ascending("name"))
           .printResults()
@@ -150,6 +159,7 @@ collection.find(and(gte("stars", 2), lt("stars", 5), equal("categories", "Bakery
 The [`FindObservable`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/FindObservable.html" >}}) methods themselves return `FindObservable` objects, and as such, you can append multiple `FindObservable` methods to the `find()` method.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.find(and(gte("stars", 2), lt("stars", 5), equal("categories", "Bakery")))
           .sort(ascending("name"))
           .projection(fields(include("name", "stars", "categories"), excludeId()))
@@ -163,6 +173,7 @@ To [explain]({{< docsref "reference/command/explain/" >}}) a find operation, cal
 method:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.find(and(gte("stars", 2), lt("stars", 5), eq("categories", "Bakery")))
           .explain()
           .printResults()

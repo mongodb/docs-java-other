@@ -50,6 +50,7 @@ For additional information on connecting to MongoDB, see [Connect to MongoDB]({{
 To insert a single document into the collection, you can use the collection's [`insertOne()`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoCollection.html#insertOne(document:TResult,options:org.mongodb.scala.model.InsertOneOptions):org.mongodb.scala.SingleObservable[org.mongodb.scala.Completed]" >}}) method.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 val document = Document("name" -> "Café Con Leche" , 
                         "contact" -> Document("phone" -> "228-555-0149", 
                                               "email" -> "cafeconleche@example.com", 
@@ -70,6 +71,7 @@ To add multiple documents, you can use the collection's [`insertMany()`]({{< api
 The following example inserts two documents to the collection:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 val doc1 = Document("name" -> "Amarcord Pizzeria" , 
                     "contact" -> Document("phone" -> "264-555-0193", 
                                           "email" -> "amarcord.pizzeria@example.net", 
@@ -115,6 +117,7 @@ The [`updateOne()`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoColl
 The following operation on the `restaurants` collection updates a document whose `_id` field equals `BsonObjectId("57506d62f57802807471dd41")`.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.updateOne(
                 equal("_id", BsonObjectId("57506d62f57802807471dd41")),
                 combine(set("stars", 1), set("contact.phone", "228-555-9999"), currentDate("lastModified")))
@@ -138,6 +141,7 @@ The [`updateMany`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoColle
 The following operation on the `restaurants` collection updates all documents whose `stars` field equals `2`.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.updateMany(
               equal("stars", 2),
               combine(set("stars", 0), currentDate("lastModified")))
@@ -155,6 +159,7 @@ Specifically, the operation uses:
 With the [`updateOne()`]({{< apiref "mongo-scala-driver" """org/mongodb/scala/MongoCollection.html#updateOne(filter:org.mongodb.scala.bson.conversions.Bson,update:Seq[org.mongodb.scala.bson.conversions.Bson],options:org.mongodb.scala.model.UpdateOptions):org.mongodb.scala.SingleObservable[org.mongodb.scala.result.UpdateResult]" >}}) and [`updateMany`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoCollection.html#updateOne(filter:org.mongodb.scala.bson.conversions.Bson,update:Seq[org.mongodb.scala.bson.conversions.Bson],options:org.mongodb.scala.model.UpdateOptions):org.mongodb.scala.SingleObservable[org.mongodb.scala.result.UpdateResult]" >}}) methods, you can include an [`UpdateOptions`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/model/index.html#UpdateOptions=com.mongodb.client.model.UpdateOptions" >}}) document to specify the [`upsert`]({{<docsref "reference/method/db.collection.update/#upsert-option" >}}) option or the [`bypassDocumentationValidation`]({{<docsref "core/document-validation/#bypass-document-validation" >}}) option.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.updateOne(
                 equal("_id", 1),
                 combine(set("name", "Fresh Breads and Tulips"), currentDate("lastModified")),
@@ -188,6 +193,7 @@ The replacement document can have different fields from the original document. I
 The following operation on the `restaurants` collection replaces the document whose `_id` field equals `BsonObjectId("57506d62f57802807471dd41")`.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.replaceOne(
                 equal("_id", BsonObjectId("57506d62f57802807471dd41")),
                 Document("name" -> "Green Salads Buffet", "contact" -> "TBD",
@@ -202,6 +208,7 @@ See also [Update a Document](#update-a-single-document).
 With the [`replaceOne`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoCollection.html#updateOne(filter:org.mongodb.scala.bson.conversions.Bson,update:Seq[org.mongodb.scala.bson.conversions.Bson],options:org.mongodb.scala.model.UpdateOptions):org.mongodb.scala.SingleObservable[org.mongodb.scala.result.UpdateResult]" >}}), you can include an [`UpdateOptions`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/model/index.html#UpdateOptions=com.mongodb.client.model.UpdateOptions" >}}) document to specify the [`upsert`]({{<docsref "reference/method/db.collection.update/#upsert-option" >}}) option or the [`bypassDocumentationValidation`]({{<docsref "core/document-validation/#bypass-document-validation" >}}) option.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.replaceOne(
                 equal("name", "Orange Patisserie and Gelateria"),
                 Document("stars" -> 5, "contact"  -> "TBD", 
@@ -238,6 +245,7 @@ The [`deleteMany`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoColle
 The following operation on the `restaurants` collection deletes all documents whose `stars` field equals `4`.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.deleteMany(equal("stars", 4)).printResults()
 ```
 

@@ -60,6 +60,7 @@ To create a specification for an ascending index, use the [`Indexes.ascending`](
 The following example creates an ascending index on the `name` field:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.createIndex(Indexes.ascending("name"))
           .printResults()
 ```
@@ -70,6 +71,7 @@ The following example creates an ascending [compound index]({{<docsref "core/ind
  field:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.createIndex(Indexes.ascending("stars", "name"))
           .printResults()
 ```
@@ -85,6 +87,7 @@ To create a specification of a descending index, use the [`Indexes.descending`](
 The following example creates a descending index on the `stars` field:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.createIndex(Indexes.descending("stars"))
           .printResults()
 ```
@@ -94,6 +97,7 @@ collection.createIndex(Indexes.descending("stars"))
 The following example creates a descending [compound index]({{<docsref "core/index-compound" >}}) on the `stars` field and the `name` field:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.createIndex(Indexes.descending("stars", "name"))
           .printResults()
 ```
@@ -111,6 +115,7 @@ To create a specification for a compound index where all the keys are ascending,
 The following example creates a compound index with the `stars` field in descending order and the `name` field in ascending order:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.createIndex(
               Indexes.compoundIndex(Indexes.descending("stars"), 
                                     Indexes.ascending("name")))
@@ -125,6 +130,7 @@ MongoDB provides [text indexes]({{<docsref "core/index-text" >}}) to support tex
 The following example creates a text index on the `name` field:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.createIndex(Indexes.text("name"))
           .printResults()
 ```
@@ -136,6 +142,7 @@ To create a specification for a [hashed index]({{<docsref "core/index-hashed" >}
 The following example creates a hashed index on the `_id` field:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.createIndex(Indexes.hashed("_id"))
           .printResults()
 ```
@@ -152,6 +159,7 @@ To create a specification for a [`2dsphere` index]({{<docsref "core/2dsphere" >}
 The following example creates a `2dsphere` index on the `"contact.location"` field:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.createIndex(Indexes.geo2dsphere("contact.location"))
           .printResults()
 ```
@@ -172,6 +180,7 @@ The Scala driver provides the [IndexOptions]({{< apiref "mongo-scala-driver" "or
 The following specifies a [`unique(true)`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/model/index.html#IndexOptions=com.mongodb.client.model.IndexOptions" >}}) option to create a [unique index]({{<docsref "core/index-unique" >}}) on the `name` and `stars` fields:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 val indexOptions = IndexOptions().unique(true)
 collection.createIndex(Indexes.ascending("name", "stars"), indexOptions)
           .printResults()
@@ -186,6 +195,7 @@ To create a [partial index]({{<docsref "core/index-partial/" >}}), include a [pa
 The following example creates a partial index on documents that have `status` field equal to `"A"`.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 val partialFilterIndexOptions = IndexOptions()
              .partialFilterExpression(Filters.exists("contact.email"))
 collection.createIndex(
@@ -200,6 +210,7 @@ For more information on partial indexes, see [Partial Indexes]({{<docsref "core/
 Use the `listIndexes()` method to get a list of indexes. The following lists the indexes on the collection:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.listIndexes().printResults()
 ```
 

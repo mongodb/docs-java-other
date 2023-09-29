@@ -83,6 +83,7 @@ The MongoDB driver provides the [`createCollection()`]({{< apiref "mongo-scala-d
 For example, the following operation creates a [capped collection]({{<docsref "core/capped-collections" >}}) sized to 1 megabyte:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 database.createCollection("cappedCollection", CreateCollectionOptions().capped(true).sizeInBytes(0x100000))
         .printResults()
 ```
@@ -92,6 +93,7 @@ database.createCollection("cappedCollection", CreateCollectionOptions().capped(t
 MongoDB provides the capability to [validate documents]({{<docsref "core/document-validation" >}}) during updates and insertions. Validation rules are specified on a per-collection basis using the [`ValidationOptions`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/model/package$$ValidationOptions$.html" >}}), which takes a filter document that specifies the validation rules or expressions.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 ValidationOptions collOptions = ValidationOptions().validator(
         Filters.or(Filters.exists("email"), Filters.exists("phone")))
 
@@ -104,6 +106,7 @@ database.createCollection("contacts", CreateCollectionOptions().validationOption
 You can get a list of the collections in a database using the [`MongoDatabase.listCollectionNames()`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoDatabase.html#listCollectionNames--" >}}) method:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 database.listCollectionNames().printResults()
 ```
 
@@ -112,6 +115,7 @@ database.listCollectionNames().printResults()
 You can drop a collection by using the [`MongoCollection.drop()`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoCollection.html#drop--" >}}) method:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 val collection: MongoCollection[Document] = database.getCollection("contacts")
 collection.drop().printResults()
 ```
@@ -141,6 +145,8 @@ An overload of the `getCollection` method allows clients to specify a different 
 users may wish to use the strict and typesafe `BsonDocument` class with the CRUD API:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
+
 // Pass BsonDocument.class as the second argument
 import org.mongodb.scala.bson._
 
