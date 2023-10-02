@@ -95,14 +95,13 @@ To [explain]({{< docsref "reference/command/explain/" >}}) an aggregation pipeli
 [`AggregateObservable.explain()`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/AggregateObservable.html#explain()" >}})
 method:
 
-```java
+```scala
 // Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.aggregate(
-      Arrays.asList(
-              Aggregates.match(Filters.eq("categories", "Bakery")),
-              Aggregates.group("$stars", Accumulators.sum("count", 1))))
-      .explain()
-      .printResults()
+  Seq(Aggregates.filter(Filters.eq("categories", "Bakery")),
+      Aggregates.group("$stars", Accumulators.sum("count", 1))))
+  .explain()
+  .printResults()
 ```
 
 The driver supports explain of aggregation pipelines starting with MongoDB 3.6.
