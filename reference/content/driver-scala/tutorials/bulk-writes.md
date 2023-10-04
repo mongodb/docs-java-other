@@ -25,6 +25,7 @@ This guide uses the `Observable` implicits as covered in the [Quick Start Primer
 {{% /note %}}
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 import org.mongodb.scala._
 import org.mongodb.scala.model._
 

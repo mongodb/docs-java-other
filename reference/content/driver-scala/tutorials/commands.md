@@ -47,6 +47,7 @@ object that specifies the command and pass it to the `runCommand()` method.
 The following sample code runs the [`buildInfo`]({{<docsref "reference/command/buildInfo" >}}) command and prints the results:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 database.runCommand(Document("buildInfo" -> 1)).printResults()
 ```
 

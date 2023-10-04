@@ -49,6 +49,7 @@ helper to create a specification for the `2dsphere` index and pass to [`MongoCol
 The following example creates a `2dsphere` index on the `"contact.location"` field for the `restaurants` collection.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 val collection = database.getCollection("restaurants")
 collection.createIndex(Indexes.geo2dsphere("contact.location")).printResults()
 ```
@@ -60,6 +61,7 @@ MongoDB provides various [geospatial query operators]({{<docsref "reference/oper
 The following example returns documents that are at least 1000 meters from and at most 5000 meters from the specified GeoJSON point ``org.mongodb.scala.model.geojson.Point``, sorted from nearest to farthest:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 val refPoint = Point(Position(-73.9667, 40.78))
 collection.find(Filters.near("contact.location", refPoint, 5000.0, 1000.0)).printResults()
 ```

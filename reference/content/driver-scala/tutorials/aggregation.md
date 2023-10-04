@@ -56,6 +56,7 @@ In the following example, the aggregation pipeline
 
 - Then, uses  a [`$group`]({{< docsref "reference/operator/aggregation/group/" >}}) stage to group the matching documents by the `stars` field, accumulating a count of documents for each distinct value of `stars`. The example uses [`Aggregates.group`]({{< relref "builders/aggregation.md#group" >}}) to build the `$group` stage and [`Accumulators.sum`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/model/Accumulators$.html#sum[TExpression](fieldName:String,expression:TExpression):org.mongodb.scala.model.BsonField" >}}) to build the [accumulator expression]({{< docsref "reference/operator/aggregation/group/#accumulator-operator" >}}).  For the [accumulator expressions]({{< docsref "reference/operator/aggregation-group/" >}}) for use within the [`$group`]({{< docsref "reference/operator/aggregation/group/" >}}) stage, the Scala driver provides [`Accumulators`]({{< apiref "mongodb-driver-core" "com/mongodb/client/model/Accumulators.html" >}}) helper class.
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.aggregate(Seq(
   Aggregates.filter(Filters.equal("categories", "Bakery")),
   Aggregates.group("$stars", Accumulators.sum("count", 1))
@@ -71,6 +72,7 @@ In the following example, the aggregation pipeline uses a [`$project`]({{< docsr
 
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.aggregate(
   Seq(
     Aggregates.project(
@@ -93,13 +95,13 @@ To [explain]({{< docsref "reference/command/explain/" >}}) an aggregation pipeli
 [`AggregateObservable.explain()`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/AggregateObservable.html#explain()" >}})
 method:
 
-```java
+```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.aggregate(
-      Arrays.asList(
-              Aggregates.match(Filters.eq("categories", "Bakery")),
-              Aggregates.group("$stars", Accumulators.sum("count", 1))))
-      .explain()
-      .printResults()
+  Seq(Aggregates.filter(Filters.eq("categories", "Bakery")),
+      Aggregates.group("$stars", Accumulators.sum("count", 1))))
+  .explain()
+  .printResults()
 ```
 
 The driver supports explain of aggregation pipelines starting with MongoDB 3.6.

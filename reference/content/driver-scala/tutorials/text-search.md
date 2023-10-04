@@ -50,6 +50,7 @@ static helper to create a specification for a text index and pass to [`MongoColl
 The following example creates a text index on the `name` field for the `restaurants` collection.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 val collection: MongoCollection[Document] = database.getCollection("restaurants")
 collection.createIndex(Indexes.text("name")).printResults()
 ```
@@ -61,6 +62,7 @@ To perform text search, use the [`Filters.text()`]({{< apiref "mongo-scala-drive
 For example, the following code performs a text search on the `name` field for the word `"bakery"` or `"coffee"`.
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.countDocuments(Filters.text("bakery coffee")).printResults("Text search matches: ")
 ```
 
@@ -78,6 +80,7 @@ For each matching document, text search assigns a score, representing the releva
 
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.find(Filters.text("bakery cafe"))
                        .projection(Projections.metaTextScore("score"))
                        .sort(Sorts.metaTextScore("score"))
@@ -91,6 +94,7 @@ The  [`Filters.text()`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/model
 For example, the following text search specifies the [text search language]({{<docsref "reference/text-search-languages" >}}) option when performing text search for the word `cafe`:
 
 ```scala
+// Note: this code example uses a custom implicit helper referenced in the Quick Start Primer
 collection.countDocuments(Filters.text("cafe", TextSearchOptions().language("english")))
                                  .printResults("Text search matches (english): ")
 ```
