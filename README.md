@@ -26,7 +26,8 @@ or the source in the [docs-java repository](https://github.com/mongodb/docs-java
 :warning: **When building docs for a new version, update the following items:**
 - The `<this repo>/reference/config.toml` file to point to the new base version
 - The `<this repo>/landing/data/releases.toml` file to link to the docs for the new version
-- Redirects such as the [Java sync docs redirect](https://github.com/mongodb/docs-java-other/pull/3/files#diff-0f1a8692163867f83ff7451f3018bae71d3d16dbee396abf03263784e5dda940)
+- Update the "Previous Versions" sections for the Scala and Java RS driver docs which are in ``reference/content/<driver name directory>/index.md``
+- Meta redirects as shown in this PR [Java sync docs redirect](https://github.com/mongodb/docs-java-other/pull/3/files#diff-0f1a8692163867f83ff7451f3018bae71d3d16dbee396abf03263784e5dda940)
 
 After updating the documentation, submit a pull request for approval.
 
