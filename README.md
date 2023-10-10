@@ -24,8 +24,10 @@ or the source in the [docs-java repository](https://github.com/mongodb/docs-java
 ## Build Instructions
 
 :warning: **When building docs for a new version, update the following items:**
-- The `<this repo>/reference/config.toml` file to point to the new base version
-- The `<this repo>/landing/data/releases.toml` file to link to the docs for the new version
+- `<this repo>/reference/config.toml` file to point to the new base version
+- `<this repo>/landing/data/releases.toml` file to link to the docs for the new version
+- `<thid repo>/reference/data/mongodb.toml` file to display the mew version
+- `<reference/content/driver-reactive/getting-started/installation.md` and `<reference/content/driver-scala/getting-started/installation.md` files to display the new version
 - Update the "Previous Versions" sections for the Scala and Java RS driver docs which are in ``reference/content/<driver name directory>/index.md``
 - Meta redirects as shown in this PR [Java sync docs redirect](https://github.com/mongodb/docs-java-other/pull/3/files#diff-0f1a8692163867f83ff7451f3018bae71d3d16dbee396abf03263784e5dda940)
 
