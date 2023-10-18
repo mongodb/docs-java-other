@@ -130,10 +130,6 @@ Specifically, the operation uses:
 
 - [`Updates.currentDate`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/model/Updates$.html#currentDate(fieldName:String):org.mongodb.scala.bson.conversions.Bson" >}}) to modify the `lastModified` field to the current date. If the `lastModified` field does not exist, the operator adds the field to the document.  
 
-{{% note class="tip" %}}
-In some cases where you may need to update many fields in a document, it may be more efficient to replace the document.  See [Replace a Document](#replace-a-document).
-{{% /note %}}
-
 ### Update Multiple Documents
 
 The [`updateMany`]({{< apiref "mongo-scala-driver" "org/mongodb/scala/MongoCollection.html#updateMany(filter:org.mongodb.scala.bson.conversions.Bson,update:Seq[org.mongodb.scala.bson.conversions.Bson],options:org.mongodb.scala.model.UpdateOptions):org.mongodb.scala.SingleObservable[org.mongodb.scala.result.UpdateResult]" >}}) method updates all documents that match the filter condition.

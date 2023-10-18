@@ -145,10 +145,6 @@ Specifically, the operation uses:
 
 - [`Updates.currentDate`]({{< apiref "mongodb-driver-core" "com/mongodb/client/model/Updates.html#currentDate(java.lang.String)" >}}) to modify the `lastModified` field to the current date. If the `lastModified` field does not exist, the operator adds the field to the document.  
 
-{{% note class="tip" %}}
-In some cases where you may need to update many fields in a document, it may be more efficient to replace the document.  See [Replace a Document](#replace-a-document).
-{{% /note %}}
-
 ### Update Multiple Documents
 
 The [`updateMany`]({{< apiref "mongodb-driver-reactivestreams" "com/mongodb/reactivestreams/client/MongoCollection.html#updateMany(org.bson.conversions.Bson,org.bson.conversions.Bson)" >}}) method updates all documents that match the filter condition.
