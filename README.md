@@ -54,6 +54,8 @@ To build the API docs, navigate to your `mongo-java-driver` repo
 (*Note: NOT the submodule in this repo*) and executing the appropriate `gradlew` command
 after checking out the correct tag. Ensure you installed the Java version specified in the `:bson:compileJava` task in your development environment prior to building.
 
+(*Note: Use the GitHub "release" that correspond to the version of the driver rather than a branch*)
+
 For example, to build the API docs for the 4.4 release of driver:
 
 ```sh
