@@ -79,7 +79,7 @@ Your submodule directory should contain a directory structure that resembles the
 
 ## Publishing
 
-To publish the documentation, you can execute the following commands in your shell from the `docs-java-other` repository location:
+To publish the documentation, run the following commands in your shell from the `docs-java-other` repository location:
 
 ```js
 cd mongo-java-driver
@@ -88,3 +88,5 @@ git commit -m <message>
 git rebase -i --root
 git push origin gh-pages -f
 ```
+
+:warning: **Make sure you are starting from the latest gh-pages branch commit in the mongo-java-driver submodule. This may not be set if you did not run the publish-docs script from docs-java-other on your local machine (e.g. if the task only involved generating reference docs on Docker and copying them over).
