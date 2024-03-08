@@ -26,6 +26,7 @@ For tutorials for some frequently used operations, see the [Tutorials section]({
 
 | Release | Documentation |
 |---------|---------------|
+|  4.11.x | {{< releases version="4.11" >}} |
 |  4.10.x | {{< releases version="4.10" >}} |
 |  4.9.x  | {{< releases version="4.9" >}} |
 |  4.8.x  | {{< releases version="4.8" >}} |
