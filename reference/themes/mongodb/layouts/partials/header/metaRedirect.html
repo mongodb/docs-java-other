@@ -55,3 +55,9 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta http-equiv="refresh" content="0;url=https://www.mongodb.com/docs/languages/java/drivers/java-rs/v5.0/" />
 {{ end }}
+
+{{ if ( and ( findRE ".*mongo-java-driver/4.*/driver-reactive/.+" .URL ) ( not ( findRE ".*/apidocs/.*" .URL )) ( not ( findRE ".*/driver-scala/.*" .URL )) ( not ( findRE ".*/whats-new/.*" .URL ))) }}
+  <link rel="canonical" href="https://www.mongodb.com/docs/languages/java/drivers/java-rs/v4.x/"/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="refresh" content="0;url=https://www.mongodb.com/docs/languages/java/drivers/java-rs/v4.x/" />
+{{ end }}
