@@ -1,7 +1,13 @@
-current = "5.0.0"
+current = "5.1.0"
 
 [[versions]]
   status = "current"
+  version = "5.1.0"
+  docs = "./5.1"
+  api = "./5.1/apidocs"
+
+[[versions]]
+  status = "5.0.0"
   version = "5.0.0"
   docs = "./5.0"
   api = "./5.0/apidocs"
