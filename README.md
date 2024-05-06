@@ -13,7 +13,8 @@ For the current Java Sync driver reference documentation, see the
 [Java Sync reference docs site](https://www.mongodb.com/docs/drivers/java/sync)
 or the source in the [docs-java repository](https://github.com/mongodb/docs-java).
 
-:note: Now that Java RS and Scala documentation is built on Snooty, you do not have to update the legacy documentation site.
+**Now that Java RS and Scala documentation is built on Snooty, you do not
+have to update the legacy documentation site.**
 
 ## Building API Documentation
 
