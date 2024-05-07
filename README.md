@@ -36,12 +36,22 @@ git checkout r4.4.0
 ./gradlew clean docs
 ```
 
+You need to create the `<version>/apidocs` directory yourself before
+copying the generated API docs files.
+
+Run the following commands to create the `apidocs` directory:
+
+````sh
+cd docs-java-other/mongo-java-driver
+mkdir -p <version>/apidocs
+```
+
 Then copy the `build/docs` folder into the `apidocs` directory. For example,
 if the `mongo-java-driver` repo is on a sibling level with this repo, run the following command:
 
 ```sh
 cp -a ../mongo-java-driver/build/docs ./mongo-java-driver/<version>/apidocs
-```
+````
 
 Your submodule directory should contain a directory structure that resembles the following:
 
@@ -53,7 +63,7 @@ Your submodule directory should contain a directory structure that resembles the
 
 To publish the documentation, run the following commands in your shell from the `docs-java-other` repository location:
 
-```js
+```sh
 cd mongo-java-driver
 git add .
 git commit -m <message>
