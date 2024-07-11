@@ -41,7 +41,7 @@ copying the generated API docs files.
 
 Run the following commands to create the `apidocs` directory:
 
-````sh
+```sh
 cd docs-java-other/mongo-java-driver
 mkdir -p <version>/apidocs
 ```
@@ -51,7 +51,7 @@ if the `mongo-java-driver` repo is on a sibling level with this repo, run the fo
 
 ```sh
 cp -a ../mongo-java-driver/build/docs ./mongo-java-driver/<version>/apidocs
-````
+```
 
 Your submodule directory should contain a directory structure that resembles the following:
 
