@@ -50,7 +50,7 @@ Then copy the `build/docs` folder into the `apidocs` directory. For example,
 if the `mongo-java-driver` repo is on a sibling level with this repo, run the following command:
 
 ```sh
-cp -a ../mongo-java-driver/build/docs ./mongo-java-driver/<version>/apidocs
+cp -a ../mongo-java-driver/build/docs/ ./mongo-java-driver/<version>/apidocs
 ```
 
 Your submodule directory should contain a directory structure that resembles the following:
@@ -60,6 +60,8 @@ Your submodule directory should contain a directory structure that resembles the
 ```
 
 ## Publishing
+
+:warning: Make sure you are starting from the latest gh-pages branch commit in the mongo-java-driver submodule. This may not be set if you did not run the publish-docs script from docs-java-other on your local machine (e.g. if the task only involved generating reference docs on Docker and copying them over).
 
 To publish the documentation, run the following commands in your shell from the `docs-java-other` repository location:
 
@@ -71,4 +73,3 @@ git rebase -i --root
 git push origin gh-pages -f
 ```
 
-:warning: Make sure you are starting from the latest gh-pages branch commit in the mongo-java-driver submodule. This may not be set if you did not run the publish-docs script from docs-java-other on your local machine (e.g. if the task only involved generating reference docs on Docker and copying them over).
