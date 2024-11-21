@@ -5,6 +5,7 @@ This repo contains build tools for the following driver documentation:
 - Reactive Streams (legacy reference and API)
 - Scala (legacy reference and API)
 - Java Sync (legacy reference and current API)
+- Kotlin (coroutine and sync)
 
 The aforementioned documentation resides in the "gh-pages" branch of
 the [MongoDB Java Driver](https://github.com/mongodb/mongo-java-driver).
