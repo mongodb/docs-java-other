@@ -38,7 +38,8 @@ git checkout r4.4.0
 ```
 
 You need to create the `<version>/apidocs` directory yourself before
-copying the generated API docs files.
+copying the generated API docs files. The version number *should not* contain the
+patch number. For example, to create a directory for v5.1.0, call the folder only 5.1.
 
 Run the following commands to create the `apidocs` directory:
 
