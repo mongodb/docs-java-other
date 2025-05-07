@@ -30,6 +30,8 @@ was Java 17.
 
 :warning: **Use the GitHub "release" that corresponds to the version of the driver rather than a branch**
 
+:important: **Make sure to disable Cloudflare WARP before running the `gradlew` command**
+
 For example, to build the API docs for the 4.4 release of the driver run the following commands:
 
 ```sh
