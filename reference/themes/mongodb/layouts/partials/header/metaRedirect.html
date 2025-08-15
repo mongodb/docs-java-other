@@ -50,6 +50,12 @@
   <meta http-equiv="refresh" content="0;url=https://www.mongodb.com/docs/drivers/java/sync/v4.3/" />
 {{ end }}
 
+{{ if ( findRE ".*mongo-java-driver/4.0/upgrading/.+" .URL ) }}
+  <link rel="canonical" href="https://www.mongodb.com/docs/drivers/java/sync/current/reference/upgrade/#version-4.0-breaking-changes"/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="refresh" content="0;url=https://www.mongodb.com/docs/drivers/java/sync/current/reference/upgrade/#version-4.0-breaking-changes" />
+{{ end }}
+
 {{ if ( and ( findRE ".*mongo-java-driver/5.0/driver-reactive/.+" .URL ) ( not ( findRE ".*/apidocs/.*" .URL )) ( not ( findRE ".*/driver-scala/.*" .URL )) ( not ( findRE ".*/whats-new/.*" .URL ))) }}
   <link rel="canonical" href="https://www.mongodb.com/docs/languages/java/reactive-streams-driver/v5.0/"/>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
