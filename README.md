@@ -5,6 +5,7 @@ This repo contains build tools for the following driver documentation:
 - Reactive Streams (legacy reference and API)
 - Scala (legacy reference and API)
 - Java Sync (legacy reference and current API)
+- Kotlin (coroutine and sync)
 
 The aforementioned documentation resides in the "gh-pages" branch of
 the [MongoDB Java Driver](https://github.com/mongodb/mongo-java-driver).
@@ -29,6 +30,8 @@ was Java 17.
 
 :warning: **Use the GitHub "release" that corresponds to the version of the driver rather than a branch**
 
+🚨 **Make sure to disable Cloudflare WARP before running the `gradlew` command**
+
 For example, to build the API docs for the 4.4 release of the driver run the following commands:
 
 ```sh
@@ -37,11 +40,12 @@ git checkout r4.4.0
 ```
 
 You need to create the `<version>/apidocs` directory yourself before
-copying the generated API docs files.
+copying the generated API docs files. The version number *should not* contain the
+patch number. For example, to create a directory for v5.1.0, call the folder only 5.1.
 
 Run the following commands to create the `apidocs` directory:
 
-````sh
+```sh
 cd docs-java-other/mongo-java-driver
 mkdir -p <version>/apidocs
 ```
@@ -50,8 +54,8 @@ Then copy the `build/docs` folder into the `apidocs` directory. For example,
 if the `mongo-java-driver` repo is on a sibling level with this repo, run the following command:
 
 ```sh
-cp -a ../mongo-java-driver/build/docs ./mongo-java-driver/<version>/apidocs
-````
+cp -a ../mongo-java-driver/build/docs/ ./mongo-java-driver/<version>/apidocs
+```
 
 Your submodule directory should contain a directory structure that resembles the following:
 
@@ -60,6 +64,8 @@ Your submodule directory should contain a directory structure that resembles the
 ```
 
 ## Publishing
+
+:warning: Make sure you are starting from the latest gh-pages branch commit in the mongo-java-driver submodule. This may not be set if you did not run the publish-docs script from docs-java-other on your local machine (e.g. if the task only involved generating reference docs on Docker and copying them over).
 
 To publish the documentation, run the following commands in your shell from the `docs-java-other` repository location:
 
@@ -71,4 +77,3 @@ git rebase -i --root
 git push origin gh-pages -f
 ```
 
-:warning: Make sure you are starting from the latest gh-pages branch commit in the mongo-java-driver submodule. This may not be set if you did not run the publish-docs script from docs-java-other on your local machine (e.g. if the task only involved generating reference docs on Docker and copying them over).
