@@ -17,40 +17,60 @@ or the source in the [docs-java repository](https://github.com/mongodb/docs-java
 **Now that Java RS and Scala documentation is built on Snooty, you do not
 have to update the legacy documentation site.**
 
-## Building API Documentation
+## Install Java 17
+
+You can install OpenJDK 17 by using Homebrew:
+
+```sh
+brew install openjdk@17
+```
+After you install it, follow the instructions to add it to $PATH and add any other needed links.
+
+## Ensure Your Repos are Right
+
+1. Clone this repo: `git clone git@github.com:mongodb/docs-java-other.git`
+2. Clone the Java driver repo: `git clone git@github.com:mongodb/mongo-java-driver.git`
+3. In `docs-java-other`, navigate to the `mongo-java-driver` submodule.
+4. List all remote branches: `git branch -r`
+
+If you see all branches from the `mongo-java-driver` repo, continue to building the docs. Otherwise, you'll need to re-add the submodule:
+
+5. From `docs-java-other`, run the following commands:
+
+```sh
+git submodule deinit -f mongo-java-driver
+rm -rf mongo-java-driver
+git rm mongo-java-driver
+git submodule add https://github.com/mongodb/mongo-java-driver.git mongo-java-driver && git submodule update --init --recursive  
+```
+6. List all remote branches again to confirm they all appear.
+
+## Build API Documentation
 
 Always build the API docs for any new major and minor releases.
 
-To build the API docs, navigate to your `mongo-java-driver` repo
-(_Note: NOT the submodule in this repo_) and execute the appropriate `gradlew` command
-after checking out the correct tag. Ensure you installed the Java
-version specified in the `:bson:compileJava` task in your development
-environment prior to building. In the most recent (9/2025) deploy, this
-was Java 17.
-
-:warning: **Use the GitHub "release" that corresponds to the version of the driver rather than a branch**
-
-🚨 **Make sure to disable Cloudflare WARP before running the `gradlew` command**
-
-For example, to build the API docs for the 4.4 release of the driver run the following commands:
+1. Navigate to the `mongo-java-driver` repo (*not* the submodule in this repo).
+2. Check out the tag that corresponds to this release. Example for v5.6:
 
 ```sh
-git checkout r4.4.0
+git checkout r5.6.0
+```
+You will be in a detached HEAD state. This is fine.
+
+3. Turn off Cloudflare WARP, then run this `gradlew` command:
+
+```sh
 ./gradlew clean docs
 ```
 
-You need to create the `<version>/apidocs` directory yourself before
-copying the generated API docs files. The version number *should not* contain the
-patch number. For example, to create a directory for v5.1.0, call the folder only 5.1.
-
-Run the following commands to create the `apidocs` directory:
-
+4. Navigate to the `mongo-java-driver` submodule: `cd docs-java-other/mongo-java-driver`
+5. Create the `<version>/apidocs` directory. Do *not* include the patch number in the folder name. Example for v5.6:
+   
 ```sh
-cd docs-java-other/mongo-java-driver
-mkdir -p <version>/apidocs
+mkdir -p 5.6/apidocs
 ```
 
-Then copy the `build/docs` folder into the `apidocs` directory. For example,
+6. Copy the `build/docs` folder into the `apidocs` directory. For example,
 if the `mongo-java-driver` repo is on a sibling level with this repo, run the following command:
 
 ```sh
@@ -65,15 +85,14 @@ Your submodule directory should contain a directory structure that resembles the
 
 ## Publishing
 
-:warning: Make sure you are starting from the latest gh-pages branch commit in the mongo-java-driver submodule. This may not be set if you did not run the publish-docs script from docs-java-other on your local machine (e.g. if the task only involved generating reference docs on Docker and copying them over).
-
-To publish the documentation, run the following commands in your shell from the `docs-java-other` repository location:
+1. In your `mongo-java-driver` submodule, check out the `gh-pages` branch.
+2. Run the following commands:
 
 ```sh
-cd mongo-java-driver
 git add .
 git commit -m <message>
-git rebase -i --root
-git push origin gh-pages -f
+git rebase -i --root (you can quit out of this)
 ```
+3. If you see a warning, resolve it. For example, if the `specifications` directory couldn't be removed, remove it manually: `rm -rf driver-core/src/test/resources/specifications`
+4. Push directly to the upstream repo: `git push origin gh-pages -f`. This will trigger a deploy.
 
