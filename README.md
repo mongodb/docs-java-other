@@ -94,5 +94,5 @@ git commit -m <message>
 git rebase -i --root (you can quit out of this)
 ```
 3. If you see a warning, resolve it. For example, if the `specifications` directory couldn't be removed, remove it manually: `rm -rf driver-core/src/test/resources/specifications`
-4. Push directly to the upstream repo: `git push origin gh-pages -f`. This will trigger a deploy.
+4. Push your changes and create a PR: `git push origin gh-pages:api-docs-<version> -f`. Get an internal review, and then merge the PR.
 
