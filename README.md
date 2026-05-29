@@ -63,6 +63,12 @@ You will be in a detached HEAD state. This is fine.
 ./gradlew clean docs
 ```
 
+If the build fails at :mongodb-crypt:verifyCryptLibs with a GPG error, skip GPG signature verification by running the following command:
+
+```sh
+./gradlew clean docs -PskipCryptVerify=true
+```
+
 4. Navigate to the `mongo-java-driver` submodule: `cd docs-java-other/mongo-java-driver`
 5. Create the `<version>/apidocs` directory. Do *not* include the patch number in the folder name. Example for v5.6:
    
@@ -94,5 +100,5 @@ git commit -m <message>
 git rebase -i --root (you can quit out of this)
 ```
 3. If you see a warning, resolve it. For example, if the `specifications` directory couldn't be removed, remove it manually: `rm -rf driver-core/src/test/resources/specifications`
-4. Push your changes and create a PR: `git push origin gh-pages:api-docs-<version> -f`. Get an internal review, and then merge the PR.
+4. Push directly to the upstream repo: `git push origin gh-pages -f`. This will trigger a deploy.
 
